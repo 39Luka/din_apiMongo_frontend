@@ -1,6 +1,5 @@
 export const productos = [
   {
-<<<<<<< HEAD
     nombre: "Pan rústico",
     descripcion: "Pan artesanal con corteza crujiente y miga tierna, ideal para acompañar comidas.",
     precio: 2.50,
