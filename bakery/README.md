@@ -31,6 +31,8 @@ Actualmente se ha desarrollado la primera sección donde aparecen los diferentes
   
 ![Imagen de diseño responsivo](docs/img/responsive.png)
 
+![Imagen de diseño responsivo en web](docs/img/responsive_web.png)
+
 ### Buenas prácticas
 - Se ha organizado el proyecto con una estructura Types-Base.
   
