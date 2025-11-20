@@ -42,7 +42,6 @@
 .heading-h6 {
   font-size: var(--heading-h6-size);
   line-height: var(--heading-h6-line-height);
-  font-weight: var(--heading-h6-weight);
 }
 
 /* ===== Pesos ===== */

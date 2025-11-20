@@ -1,43 +1,30 @@
 /**
  * Componente genérico que muestra una lista de elementos usando otro componente.
- * Si se pasa una función `filtro`, solo muestra los elementos que la cumplan.
  *
  * @param {string} titulo - Título de la sección.
- * @param {Array} elementos - Lista de objetos que se mostrarán.
- * @param {React.ComponentType} Componente - Componente que renderiza cada elemento.
- * @param {Function} [filtro] - (Opcional) Función que recibe cada elemento y devuelve true/false.
  */
 
 import { useId } from "react";
 
-function Seccion({ titulo, elementos, Componente, filtro }) {
 
-  // Si se pasa una función de filtro, la aplica. Si no, usa todos los elementos.(Opcional)
-  const lista = filtro ? elementos.filter(filtro) : elementos;
+function Seccion({titulo, children}) {
+
   // Se genera un id único
   const idTitulo = useId()
 
   return (
-
     <>
     <section 
      aria-labelledby={idTitulo} //Para que la sección se referencie por el contenido
      className="max-w-7xl mx-auto py-6 px-4">
 
-      <header className="text-center mb-8 mt-6">
+      <header className="text-start mb-8 mt-6">
         <h2 id={idTitulo} className="text-base heading-base heading-h2">{titulo}</h2>
       </header>
 
-      {/*Se genera un grid que por defecto tiene 1 columna, 2 en dispositivos pequeños y 4 en grandes*/}
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center items-stretch">
-        {lista.map((item, index) => (
-          <li key={index}>
-            <Componente {...item} />{/* Pasa todas las propiedades del objeto 'item' como props 
-                                      al componente. Si el componente no usa alguna, React la 
-                                      ignora sin error. */}
-          </li>
-        ))}
-      </ul>
+  
+
+      {children}
 
 
     </section>

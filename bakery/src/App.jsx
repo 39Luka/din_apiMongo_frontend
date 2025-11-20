@@ -1,17 +1,22 @@
-import Seccion from "./components/Seccion";
 import "./assets/styles/index.css";
-import { productos } from "./data/productos";
-import Card from "./components/Card";
+import MainContent from "./components/MainContent";
+import { Route, Routes } from "react-router-dom";
+import ProductosPage from "./pages/ProductosPage.jsx";
+import Header from "./components/Header.jsx";
+import Home from "./pages/Home.jsx";
 
 function App() {
   return (
     <>
-    <main id="main-content"
-    role="main"
-    tabIndex={-1}
-    >
-    <Seccion titulo="Nuestros Productos" elementos={productos} Componente={Card}/>    
-    </main>
+    <Header />
+    <Routes>
+      <Route path="/" element={<MainContent />}>
+        <Route index element={<Home />} />
+        <Route path="home" element={<Home />} />
+        <Route path="productos" element={<ProductosPage />} />
+
+      </Route>
+    </Routes>
     </>
   );
 }
