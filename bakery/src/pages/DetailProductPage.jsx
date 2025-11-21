@@ -19,6 +19,10 @@ function DetailProductPage() {
       <section>
         <h2>{producto.nombre}</h2>
         <h3>{producto.categoria}</h3>
+        <p>{producto.precio}€</p>
+        <p>{producto.descripcion}</p>
+
+
       </section>
     </>
   );
