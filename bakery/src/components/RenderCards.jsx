@@ -38,7 +38,6 @@ function RenderCards({ elementos, options = {} }) {
     <li key={item.id} className="w-full">
       <Link
         to={`/productos/${item.id}`}
-        className="contents" // Permite que el <Link> no rompa la estructura visual de <li>
         aria-label={`Ver detalles de ${item.nombre}`} // Accesibilidad para lectores de pantalla
       >
         <Card {...item} />

@@ -20,7 +20,6 @@ function Banner({ imagen, titulo, contenido }) {
     <section
       className="relative w-full mx-auto my-8 px-4 sm:px-6 md:px-8"
       aria-label={`Banner: ${titulo}`} // Mejora accesibilidad describiendo la sección
-      tabIndex={0} // Permite que la sección sea enfocada con teclado
     >
       <figure className="relative rounded-lg shadow-lg overflow-hidden aspect-video sm:aspect-auto sm:h-80 md:h-96">
         

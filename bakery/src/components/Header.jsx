@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Nav from "./Nav.jsx";
 
 /**
@@ -10,21 +11,41 @@ import Nav from "./Nav.jsx";
  * @component
  * @returns {JSX.Element} Encabezado renderizado con título y menú de navegación.
  */
+
 function Header() {
   return (
-    <header
-      className="fixed top-0 left-0 w-full z-50 shadow-md bg-(--color-secondary) flex items-center justify-between p-8"
-      aria-label="Encabezado principal" // Mejora accesibilidad describiendo la sección
-    >
-      {/* Título del sitio */}
-      <h1 className="text-base heading-base heading-h1 text-(--color-primary)">
-        Bakery++
-      </h1>
+    <>
+      <header
+        className="fixed top-0 left-0 w-full z-50 bg-[var(--color-secondary)] flex items-center justify-between p-4"
+        aria-label="Encabezado principal"
+      >
+        <Link
+          to="/home"
+          className="flex items-center gap-4"
+          aria-label="Ir al inicio"
+        >
+          <img
+            src="/Logo.png"
+            alt="Logo de Bakery++"
+            className="w-[100px] h-[100px] object-contain"
+          />
+          {/* Ajusta el tamaño del logo si quieres */}
 
-      {/* Componente de navegación */}
-      <Nav />
-    </header>
+          <div role="presentation">
+            <h1 className="text-base heading-base heading-h1 text-[var(--color-primary)]">
+              Bakery++
+            </h1>
+            <p className="text-base font-medium text-[var(--color-primary)]">
+              Powered by harina
+            </p>
+          </div>
+        </Link>
+
+        <Nav />
+      </header>
+    </>
   );
 }
 
 export default Header;
+

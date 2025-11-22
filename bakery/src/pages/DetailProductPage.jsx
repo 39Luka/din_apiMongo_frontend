@@ -90,7 +90,6 @@ function DetailProductPage() {
             src={producto.imagen}
             alt={`Imagen del producto ${producto.nombre}`}
             className="w-full h-48 sm:h-64 md:h-80 lg:h-96 object-cover rounded-xl shadow-lg"
-            tabIndex={0} // Permite foco para accesibilidad
           />
 
           {/* Texto alternativo oculto */}
