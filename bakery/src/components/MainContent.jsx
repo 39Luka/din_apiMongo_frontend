@@ -1,22 +1,24 @@
 import { Outlet } from "react-router-dom";
 
 /**
- * MainContent - Contenedor semántico principal de contenido
- * Estructura: main con Outlet (React Router) para renderizar rutas
- * Accesibilidad: role="main", id para referencia, tabIndex={-1} para skip link
- * Estilos: flex-1 (crece), pt-36 (debajo del header fijo), pb-15 (arriba del footer)
+ * MainContent component
+ *
+ * Componente que sirve como contenedor principal del contenido de la página.
+ * Se usa junto con `react-router-dom` para renderizar las sub-rutas.
+ * Incluye accesibilidad mediante `id`, `tabIndex` y `aria-label`.
+ *
+ * @component
+ * @returns {JSX.Element} Contenedor principal que renderiza las rutas hijas.
  */
 function MainContent() {
   return (
     <main
       className="flex-1 mx-auto pt-36 pb-15"
-      id="main-content"
-      role="main"
-      tabIndex={-1}
-      aria-label="Contenido principal"
+      id="main-content" // ID usado para enlaces de accesibilidad ("skip link")
+      tabIndex={-1} // Permite que el main reciba foco programáticamente
+      aria-label="Contenido principal" // Mejora accesibilidad describiendo la sección
     >
-      {/* Outlet: punto de renderización de componentes de ruta
-          Cada página (Home, ProductsPage, DetailProductPage) se renderiza aquí */}
+      {/* Renderiza las rutas hijas definidas en App.jsx */}
       <Outlet />
     </main>
   );

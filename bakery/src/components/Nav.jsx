@@ -2,23 +2,30 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 /**
- * Nav - Navegación principal
- * Incluye menú móvil (hamburguesa) y menú horizontal (desktop)
- * Accesibilidad: roles, aria-labels, tabindex, navegación por teclado
+ * Nav component
+ *
+ * Componente que representa la navegación principal del sitio.
+ * Incluye:
+ * - Menú de escritorio visible en pantallas grandes.
+ * - Menú desplegable para dispositivos móviles.
+ * - Accesibilidad mediante `aria-label`, `role` y `tabIndex`.
+ *
+ * @component
+ * @returns {JSX.Element} Componente de navegación con menú móvil y escritorio.
  */
 function Nav() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // Estado para controlar menú móvil
 
-  // Enlaces de navegación
+  // Definición de enlaces de navegación
   const links = [
     { to: "/home", label: "Home" },
     { to: "/productos", label: "Productos" },
   ];
 
-  // Alterna visibilidad del menú móvil
+  // Alterna la visibilidad del menú móvil
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // Estilos para enlaces activos e inactivos
+  // Clase dinámica para enlaces según si están activos
   const linkClass = ({ isActive }) =>
     `px-3 py-2 text-base text-bold rounded-md ${
       isActive
@@ -28,24 +35,21 @@ function Nav() {
 
   return (
     <nav className="relative" aria-label="Navegación principal">
-      {/* BOTÓN HAMBURGUESA - Solo visible en móvil */}
+      {/* Botón para abrir/cerrar menú móvil */}
       <button
         onClick={toggleMenu}
         className="text-2xl text-(--color-primary) px-2 py-1 rounded md:hidden"
-        aria-controls="menu-movil"
-        aria-expanded={isOpen}
         aria-label={isOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
         tabIndex={0}
       >
         {isOpen ? "✖" : "☰"}
       </button>
 
-      {/* MENÚ MÓVIL - Solo visible en pantallas pequeñas */}
+      {/* Menú móvil desplegable */}
       {isOpen && (
         <ul
           id="menu-movil"
           className="fixed top-20 left-0 w-full bg-(--color-secondary) z-50 flex flex-col gap-4 p-6 md:hidden"
-          role="menu"
           aria-label="Menú de navegación móvil"
         >
           {links.map((link) => (
@@ -53,7 +57,7 @@ function Nav() {
               <NavLink
                 to={link.to}
                 className={linkClass}
-                onClick={() => setIsOpen(false)}
+                onClick={() => setIsOpen(false)} // Cierra menú al seleccionar enlace
                 tabIndex={0}
               >
                 {link.label}
@@ -63,7 +67,7 @@ function Nav() {
         </ul>
       )}
 
-      {/* MENÚ DESKTOP - Visible en pantallas medianas+ */}
+      {/* Menú de escritorio */}
       <ul
         className="hidden md:flex gap-6"
         role="menubar"

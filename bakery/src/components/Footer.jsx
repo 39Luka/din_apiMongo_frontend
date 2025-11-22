@@ -1,18 +1,23 @@
 /**
- * Footer - Pie de página semántico
- * Estructura: footer > div (contenedor)
- * Accesibilidad: elemento footer semántico, aria-label para contexto
- * Estilos: color secundario fondo, ancho completo, posición flexible
+ * Footer component
+ *
+ * Componente que muestra el pie de página del sitio.
+ * Contiene información básica como copyright.
+ * Incluye accesibilidad mediante `aria-label`.
+ *
+ * @component
+ * @returns {JSX.Element} Pie de página renderizado.
  */
 function Footer() {
   return (
     <footer
       className="bg-(--color-secondary) text-(--color-primary) text-base py-6 w-full"
-      aria-label="Pie de página"
+      aria-label="Pie de página" // Mejora accesibilidad describiendo la sección
     >
-      {/* Contenedor: ancho máximo, centrado automático con mx-auto */}
-      <div className="container mx-auto text-center">
-        {/* Texto de copyright */}
+      <div
+        className="container mx-auto text-center"
+        role="presentation" // Contenedor puramente decorativo/estructural
+      >
         © 2025 Mi Sitio
       </div>
     </footer>

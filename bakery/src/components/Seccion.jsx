@@ -1,38 +1,38 @@
-/**
- * Seccion - Contenedor semántico reutilizable para secciones
- * Estructura: section > header > h2 + children
- * Accesibilidad: aria-labelledby referencia el h2 al section; useId genera id único
- * Props: titulo (string), children (JSX)
- */
-
 import { useId } from "react";
 
+/**
+ * Seccion component
+ *
+ * Componente que representa una sección de contenido con título.
+ * Permite pasar contenido interno a través de `children`.
+ * Incluye accesibilidad mediante `aria-labelledby` y `id` único para el título.
+ *
+ * @component
+ * @param {Object} props
+ * @param {string} props.titulo - Título de la sección.
+ * @param {React.ReactNode} props.children - Contenido que se renderiza dentro de la sección.
+ * @returns {JSX.Element} Sección con encabezado y contenido.
+ */
 function Seccion({ titulo, children }) {
-  // Genera un id único para evitar colisiones en múltiples instancias
-  const idTitulo = useId();
+  const idTitulo = useId(); // Genera un ID único para accesibilidad
 
   return (
     <>
-      {/* Section: contenedor semántico referenciado por su h2 mediante aria-labelledby
-          max-w-7xl: ancho máximo 80rem (1280px)
-          py-6 px-4: padding vertical 1.5rem, horizontal responsive (1rem móvil) */}
       <section
-        aria-labelledby={idTitulo}
+        aria-labelledby={titulo + "_" + idTitulo} // Relaciona la sección con su encabezado
         className="max-w-7xl mx-auto py-6 px-4"
       >
-        {/* Header: contenedor semántico para el título de la sección */}
         <header className="text-start mb-8 mt-6">
-          {/* h2: id único vinculado a aria-labelledby del section
-              Color primario, estilos de heading coherentes */}
+          {/* Título de la sección */}
           <h2
-            id={idTitulo}
+            id={titulo + "_" + idTitulo} // ID usado por aria-labelledby
             className="text-base heading-base heading-h2 text-(--color-primary)"
           >
             {titulo}
           </h2>
         </header>
 
-        {/* Children: contenido dinámico de la sección (típicamente una lista/grid) */}
+        {/* Contenido de la sección */}
         {children}
       </section>
     </>
