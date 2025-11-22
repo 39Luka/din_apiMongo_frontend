@@ -1,12 +1,11 @@
+// Footer.jsx
 /**
  * Footer component
  *
- * Componente que muestra el pie de página del sitio.
- * Contiene información básica como copyright.
- * Incluye accesibilidad mediante `aria-label`.
+ * Pie de página accesible.
  *
  * @component
- * @returns {JSX.Element} Pie de página renderizado.
+ * @returns {JSX.Element}
  */
 function Footer() {
   return (
@@ -15,13 +14,12 @@ function Footer() {
       aria-label="Pie de página"
     >
       <div className="w-full flex items-center justify-between px-6">
-        
-        {/* Copy a la izquierda */}
+        {/* Copy */}
         <p className="text-base">
           © 2025 Bakery++ — Todos los derechos reservados
         </p>
 
-        {/* Logo a la derecha, tamaño exacto 35px */}
+        {/* Logo */}
         <img
           src="/Logo.png"
           alt="Logo de Bakery++"

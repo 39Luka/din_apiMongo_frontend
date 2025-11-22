@@ -1,31 +1,25 @@
+// Nav.jsx
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 /**
  * Nav component
  *
- * Componente que representa la navegación principal del sitio.
- * Incluye:
- * - Menú de escritorio visible en pantallas grandes.
- * - Menú desplegable para dispositivos móviles.
- * - Accesibilidad mediante `aria-label`, `role` y `tabIndex`.
+ * Menú principal, escritorio y móvil.
  *
  * @component
- * @returns {JSX.Element} Componente de navegación con menú móvil y escritorio.
+ * @returns {JSX.Element}
  */
 function Nav() {
-  const [isOpen, setIsOpen] = useState(false); // Estado para controlar menú móvil
+  const [isOpen, setIsOpen] = useState(false);
 
-  // Definición de enlaces de navegación
   const links = [
     { to: "/home", label: "Home" },
     { to: "/productos", label: "Productos" },
   ];
 
-  // Alterna la visibilidad del menú móvil
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // Clase dinámica para enlaces según si están activos
   const linkClass = ({ isActive }) =>
     `px-3 py-2 text-base text-bold rounded-md ${
       isActive
@@ -35,7 +29,7 @@ function Nav() {
 
   return (
     <nav className="relative" aria-label="Navegación principal">
-      {/* Botón para abrir/cerrar menú móvil */}
+      {/* Botón menú móvil */}
       <button
         onClick={toggleMenu}
         className="text-2xl text-(--color-primary) px-2 py-1 rounded md:hidden"
@@ -45,7 +39,7 @@ function Nav() {
         {isOpen ? "✖" : "☰"}
       </button>
 
-      {/* Menú móvil desplegable */}
+      {/* Menú móvil */}
       {isOpen && (
         <ul
           id="menu-movil"
@@ -57,7 +51,7 @@ function Nav() {
               <NavLink
                 to={link.to}
                 className={linkClass}
-                onClick={() => setIsOpen(false)} // Cierra menú al seleccionar enlace
+                onClick={() => setIsOpen(false)}
                 tabIndex={0}
               >
                 {link.label}
@@ -67,7 +61,7 @@ function Nav() {
         </ul>
       )}
 
-      {/* Menú de escritorio */}
+      {/* Menú escritorio */}
       <ul
         className="hidden md:flex gap-6"
         role="menubar"
