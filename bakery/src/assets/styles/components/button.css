@@ -1,0 +1,28 @@
+/* BOTÓN */
+.button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+
+    &:hover {
+        background-color: var(--color-secondary);
+        color: var(--color-primary);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+}

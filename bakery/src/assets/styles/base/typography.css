@@ -1,0 +1,60 @@
+/* =========================================
+   TIPOGRAFÍA BASE (ETIQUETAS)
+   ========================================= */
+
+/* Encabezados por defecto */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: var(--heading-weight-base);
+}
+
+h1 {
+    font-size: var(--heading-h1-size);
+    line-height: var(--heading-h1-line-height);
+}
+
+h2 {
+    font-size: var(--heading-h2-size);
+    line-height: var(--heading-h2-line-height);
+}
+
+h3 {
+    font-size: var(--heading-h3-size);
+    line-height: var(--heading-h3-line-height);
+}
+
+h4 {
+    font-size: var(--heading-h4-size);
+    line-height: var(--heading-h4-line-height);
+}
+
+h5 {
+    font-size: var(--heading-h5-size);
+    line-height: var(--heading-h5-line-height);
+}
+
+h6 {
+    font-size: var(--heading-h6-size);
+    line-height: var(--heading-h6-line-height);
+}
+
+/* Textos y párrafos por defecto */
+p {
+    font-size: var(--text-normal-size);
+    line-height: var(--text-normal-line-height);
+    font-weight: var(--text-weight-base);
+}
+
+small {
+    font-size: var(--text-small-size);
+    line-height: var(--text-small-line-height);
+}
+
+b,
+strong {
+    font-weight: var(--fw-bold);
+}

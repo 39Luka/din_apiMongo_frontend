@@ -1,0 +1,72 @@
+/* NAVEGACIÓN (NAV) */
+.nav {
+    position: relative;
+}
+
+.nav__toggle {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+/* Estilos base para menús (por defecto o compartidos) */
+.nav__menu--mobile {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background-color: var(--color-secondary);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.nav__menu--desktop {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav__link {
+    padding: 0.5rem 0.75rem;
+    font-size: var(--text-normal-size);
+    font-weight: var(--fw-bold);
+    border-radius: 0.375rem;
+    color: var(--color-black-1);
+    transition: color 0.2s;
+}
+
+.nav__link:hover,
+.nav__link--active {
+    color: var(--color-primary);
+    background-color: rgba(92, 41, 5, 0.05);
+    /* Tinte muy sutil del color primario */
+}
+
+/* =========================================
+   ADAPTACIÓN (MEDIA QUERIES)
+   ========================================= */
+
+/* Ajustes para vista móvil (máximo 768px o forzado) */
+@media (max-width: 768px) {
+    .nav:not(.nav--force-desktop) .nav__toggle {
+        display: block;
+    }
+
+    .nav:not(.nav--force-desktop) .nav__menu--desktop {
+        display: none;
+    }
+}
+
+/* Ajustes para vista escritorio (mínimo 769px) */
+@media (min-width: 769px) {
+    .nav__menu--mobile {
+        display: none;
+    }
+}

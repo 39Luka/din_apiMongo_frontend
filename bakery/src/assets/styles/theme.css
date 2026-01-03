@@ -1,68 +1,79 @@
+/* =========================================
+   VARIABLES GLOBALES (TEMA)
+   ========================================= */
 :root {
-  /* ===== Colores ===== */
-  --color-primary: rgba(92, 41, 5, 1);
-  --color-secondary: rgba(224, 187, 228, 1);
+    /* ===== Paleta de Colores ===== */
+    --color-primary: rgba(92, 41, 5, 1);
+    /* Marrón principal */
+    --color-secondary: rgba(224, 187, 228, 1);
+    /* Lavanda secundario */
 
-  --color-black-1: rgba(0, 0, 0, 1);
-  --color-black-2: rgba(29, 29, 29, 1);
-  --color-black-3: rgba(40, 40, 40, 1);
-  
-  --color-grey-1: rgba(51, 51, 51, 1);
-  --color-grey-2: rgba(79, 79, 79, 1);
-  --color-grey-3: rgba(130, 130, 130, 1);
-  --color-grey-4: rgba(189, 189, 189, 1);
-  --color-grey-5: rgba(224, 224, 224, 1);
-  --color-white: rgba(255, 255, 255, 1);
+    --color-black-1: rgba(0, 0, 0, 1);
+    --color-black-2: rgba(29, 29, 29, 1);
+    --color-black-3: rgba(40, 40, 40, 1);
 
-  --color-error: rgba(235, 87, 87, 1);
-  --color-info: rgba(47, 128, 237, 1);
-  --color-success: rgba(39, 174, 96, 1);
-  --color-warning: rgba(226, 185, 59, 1);
+    --color-grey-1: rgba(51, 51, 51, 1);
+    --color-grey-2: rgba(79, 79, 79, 1);
+    --color-grey-3: rgba(130, 130, 130, 1);
+    --color-grey-4: rgba(189, 189, 189, 1);
+    --color-grey-5: rgba(224, 224, 224, 1);
+    --color-white: rgba(255, 255, 255, 1);
 
-  --dropshadow: 0px 4px 24px 0px rgba(9, 44, 76, 0.4);
+    /* ===== Layout y Dimensiones ===== */
+    --header-height: 8.25rem;
+    /* 132px */
+    --logo-size: 6.25rem;
+    /* 100px */
+    --container-width: 72rem;
+    /* 1152px */
 
-  /* ===== Tipografía base ===== */
-  --font-family-base: "Inter", Helvetica;
-  --font-style-base: normal;
-  --letter-spacing-base: 0px;
+    /* Estados y Feedback */
+    --color-error: rgba(235, 87, 87, 1);
+    --color-info: rgba(47, 128, 237, 1);
+    --color-success: rgba(39, 174, 96, 1);
+    --color-warning: rgba(226, 185, 59, 1);
 
-  /* ===== Headings ===== */
-  --heading-weight-base: 700;
+    --dropshadow: 0px 4px 24px 0px rgba(9, 44, 76, 0.4);
 
-  --heading-h1-size: 40px;
-  --heading-h1-line-height: 44px;
+    /* ===== Tipografía Base ===== */
+    --font-family-base: "Inter", Helvetica, sans-serif;
+    --font-style-base: normal;
+    --letter-spacing-base: 0px;
 
-  --heading-h2-size: 32px;
-  --heading-h2-line-height: 36px;
+    /* ===== Encabezados (Headings) ===== */
+    --heading-weight-base: 700;
 
-  --heading-h3-size: 28px;
-  --heading-h3-line-height: 32px;
+    --heading-h1-size: 2.5rem;
+    --heading-h1-line-height: 1.1;
 
-  --heading-h4-size: 24px;
-  --heading-h4-line-height: 28px;
+    --heading-h2-size: 2rem;
+    --heading-h2-line-height: 1.125;
 
-  --heading-h5-size: 20px;
-  --heading-h5-line-height: 26px;
+    --heading-h3-size: 1.75rem;
+    --heading-h3-line-height: 1.15;
 
-  --heading-h6-size: 18px;
-  --heading-h6-line-height: 24px;
+    --heading-h4-size: 1.5rem;
+    --heading-h4-line-height: 1.2;
 
+    --heading-h5-size: 1.25rem;
+    --heading-h5-line-height: 1.3;
 
-  /* ===== Textos ===== */
-  --text-weight-base: 400;
-  --fw-bold: 700;
+    --heading-h6-size: 1.125rem;
+    --heading-h6-line-height: 1.4;
 
-  --text-large-size: 20px;
-  --text-large-line-height: 28px;
+    /* ===== Textos de Cuerpo ===== */
+    --text-weight-base: 400;
+    --fw-bold: 700;
 
-  --text-medium-size: 18px;
-  --text-medium-line-height: 25.2px;
+    --text-large-size: 1.25rem;
+    --text-large-line-height: 1.4;
 
-  --text-normal-size: 16px;
-  --text-normal-line-height: 22.4px;
+    --text-medium-size: 1.125rem;
+    --text-medium-line-height: 1.4;
 
-  --text-small-size: 14px;
-  --text-small-line-height: 19.6px;
+    --text-normal-size: 1rem;
+    --text-normal-line-height: 1.5;
 
+    --text-small-size: 0.875rem;
+    --text-small-line-height: 1.5;
 }
-

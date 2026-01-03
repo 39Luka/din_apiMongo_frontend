@@ -1,0 +1,118 @@
+/* DETALLE DE PRODUCTO */
+.product-detail {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+.product-detail__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.product-detail__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    order: 2;
+}
+
+.product-detail__title {
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+}
+
+.product-detail__category {
+    color: var(--color-grey-2);
+}
+
+.product-detail__price {
+    font-size: var(--text-normal-size);
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.product-detail__description {
+    color: var(--color-grey-1);
+    line-height: 1.625;
+}
+
+.product-detail__actions {
+    padding-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.product-detail__figure {
+    display: flex;
+    justify-content: center;
+    order: 1;
+}
+
+.product-detail__image {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Estado de error */
+.product-error {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+.product-error__title {
+    color: var(--color-error);
+}
+
+.product-error__text {
+    color: var(--color-grey-2);
+    margin-top: 1rem;
+}
+
+/* =========================================
+   ADAPTACIÓN (MEDIA QUERIES)
+   ========================================= */
+
+@media (min-width: 640px) {
+    .product-detail__image {
+        height: 16rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .product-detail__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .product-detail__info {
+        order: 1;
+    }
+
+    .product-detail__price {
+        font-size: var(--text-medium-size);
+    }
+
+    .product-detail__figure {
+        order: 2;
+    }
+
+    .product-detail__image {
+        height: 20rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-detail__price {
+        font-size: var(--text-large-size);
+    }
+
+    .product-detail__image {
+        height: 24rem;
+    }
+}

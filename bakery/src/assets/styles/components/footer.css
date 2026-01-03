@@ -1,0 +1,25 @@
+/* PIE DE PÁGINA (FOOTER) */
+.footer {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    width: 100%;
+    padding: 1.5rem 0;
+}
+
+.footer__container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+}
+
+.footer__copy {
+    font-size: var(--text-normal-size);
+}
+
+.footer__logo {
+    width: var(--logo-size);
+    height: var(--logo-size);
+    object-fit: contain;
+}

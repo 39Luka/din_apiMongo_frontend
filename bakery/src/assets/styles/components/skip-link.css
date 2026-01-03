@@ -1,0 +1,17 @@
+/* ENLACE DE SALTO (ACCESIBILIDAD) */
+.skip-link {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    z-index: 200;
+    transform: translateY(-150%);
+    transition: transform 0.3s;
+
+    &:focus {
+        transform: translateY(0);
+    }
+}

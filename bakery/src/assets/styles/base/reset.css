@@ -1,0 +1,67 @@
+/* =========================================
+   RESETEO DE ESTILOS (RESET)
+   ========================================= */
+
+/* Box sizing universal */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base del documento */
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-size: var(--text-normal-size);
+    line-height: var(--text-normal-line-height);
+    color: var(--color-black-1);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Mejora en macOS */
+}
+
+/* Media (Imágenes y Multimedia) */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    /* Mantiene proporción */
+}
+
+/* Formularios y Tipografía heredada */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Enlaces */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Listas */
+ul,
+ol {
+    list-style: none;
+}
+
+/* ESTRUCTURA BASE DE LA APP */
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}

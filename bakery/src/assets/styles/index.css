@@ -1,74 +1,28 @@
-@import "tailwindcss";
+/* =========================================
+   IMPORTACIONES PRINCIPALES (INDEX)
+   ========================================= */
+
+/* 1. Tema y Variables Globales */
 @import "./theme.css";
 
-/* ===== Base general ===== */
-.text-base {
-  font-family: var(--font-family-base);
-  font-style: var(--font-style-base);
-  letter-spacing: var(--letter-spacing-base);
-}
+/* 2. Estilos Base (Reseteo y Tipografía de Etiquetas) */
+@import "./base/reset.css";
+@import "./base/typography.css";
 
-/* ===== Headings ===== */
-.heading-base{
-  font-weight: var(--heading-weight-base);
+/* 3. Componentes de Interfaz y Diseño (UI) */
+@import "./components/skip-link.css";
+@import "./components/button.css";
+@import "./components/header.css";
+@import "./components/main-content.css";
+@import "./components/nav.css";
+@import "./components/footer.css";
+@import "./components/banner.css";
+@import "./components/section.css";
+@import "./components/card.css";
+@import "./components/product-grid.css";
+@import "./components/search-bar.css";
+@import "./components/product-form.css";
 
-}
-.heading-h1 {
-  font-size: var(--heading-h1-size);
-  line-height: var(--heading-h1-line-height);
-}
-
-.heading-h2 {
-  font-size: var(--heading-h2-size);
-  line-height: var(--heading-h2-line-height);
-}
-
-.heading-h3 {
-  font-size: var(--heading-h3-size);
-  line-height: var(--heading-h3-line-height);
-}
-
-.heading-h4 {
-  font-size: var(--heading-h4-size);
-  line-height: var(--heading-h4-line-height);
-}
-
-.heading-h5 {
-  font-size: var(--heading-h5-size);
-  line-height: var(--heading-h5-line-height);
-}
-
-.heading-h6 {
-  font-size: var(--heading-h6-size);
-  line-height: var(--heading-h6-line-height);
-}
-
-/* ===== Pesos ===== */
-.text-regular {
-  font-weight: var(--text-weight-base);
-}
-
-.text-bold {
-  font-weight: var(--fw-bold);
-}
-
-/* ===== Textos ===== */
-.text-large {
-  font-size: var(--text-large-size);
-  line-height: var(--text-large-line-height);
-}
-
-.text-medium {
-  font-size: var(--text-medium-size);
-  line-height: var(--text-medium-line-height);
-}
-
-.text-normal {
-  font-size: var(--text-normal-size);
-  line-height: var(--text-normal-line-height);
-}
-
-.text-small {
-  font-size: var(--text-small-size);
-  line-height: var(--text-small-line-height);
-}
+/* 4. Estilos de Páginas Específicas */
+@import "./pages/product-detail.css";
+@import "./pages/admin-page.css";

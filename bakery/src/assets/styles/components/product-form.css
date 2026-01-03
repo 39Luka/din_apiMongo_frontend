@@ -1,0 +1,94 @@
+/* FORMULARIO DE PRODUCTO */
+.add-product-page__container {
+    max-width: 50rem;
+    /* 800px */
+    margin: 0 auto;
+    width: 100%;
+}
+
+.product-form {
+    background-color: var(--color-white);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.product-form__message--success {
+    padding: 1rem;
+    background-color: rgba(39, 174, 96, 0.1);
+    color: var(--color-success);
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-success);
+    font-size: var(--text-small-size);
+}
+
+.product-form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.product-form__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .product-form__row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.product-form__label {
+    font-size: var(--text-medium-size);
+    font-weight: var(--fw-bold);
+    color: var(--color-black-2);
+}
+
+.product-form__help {
+    font-size: var(--text-small-size);
+    color: var(--color-grey-2);
+    font-style: italic;
+    margin-bottom: 0.25rem;
+}
+
+.product-form__input,
+.product-form__select,
+.product-form__textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-grey-4);
+    border-radius: 0.5rem;
+    font-size: var(--text-normal-size);
+    font-family: inherit;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    background-color: var(--color-white);
+}
+
+.product-form__input:focus,
+.product-form__select:focus,
+.product-form__textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(92, 41, 5, 0.2);
+}
+
+.product-form__input[aria-invalid="true"],
+.product-form__select[aria-invalid="true"],
+.product-form__textarea[aria-invalid="true"] {
+    border-color: var(--color-error);
+}
+
+.product-form__error {
+    color: var(--color-error);
+    font-size: var(--text-small-size);
+    margin-top: 0.25rem;
+}
+
+.product-form__actions {
+    margin-top: 1rem;
+}

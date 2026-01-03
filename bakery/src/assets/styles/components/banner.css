@@ -1,0 +1,105 @@
+/* BANNER PRINCIPAL */
+.banner {
+    position: relative;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.banner__figure {
+    position: relative;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+}
+
+.banner__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+    border-radius: 0.5rem;
+}
+
+.banner__content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-white);
+    padding: 0 1.5rem;
+}
+
+.banner__title {
+    font: var(--fw-bold) var(--heading-h6-size)/var(--heading-h6-line-height) var(--font-family-base);
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+}
+
+.banner__text {
+    font-size: var(--text-small-size);
+    filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+}
+
+/* =========================================
+   ADAPTACIÓN (MEDIA QUERIES)
+   ========================================= */
+
+/* Tablet pequeña */
+@media (min-width: 640px) {
+    .banner {
+        padding: 0 1.5rem;
+    }
+
+    .banner__figure {
+        aspect-ratio: auto;
+        height: 20rem;
+    }
+
+    .banner__content {
+        padding: 0 2rem;
+    }
+
+    .banner__title {
+        font-size: var(--heading-h4-size);
+    }
+
+    .banner__text {
+        font-size: var(--text-normal-size);
+    }
+}
+
+/* Tablet / Desktop pequeño */
+@media (min-width: 768px) {
+    .banner {
+        padding: 0 2rem;
+    }
+
+    .banner__figure {
+        height: 24rem;
+    }
+
+    .banner__title {
+        font-size: var(--heading-h3-size);
+    }
+
+    .banner__text {
+        font-size: var(--text-medium-size);
+    }
+}
+
+/* Desktop grande */
+@media (min-width: 1024px) {
+    .banner__title {
+        font-size: var(--heading-h1-size);
+    }
+}

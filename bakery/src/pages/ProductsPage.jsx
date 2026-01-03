@@ -1,26 +1,42 @@
-// ProductsPage.jsx
-import Seccion from "../components/Seccion.jsx";
+import { useState, useMemo } from "react";
+import Section from "../components/layout/Section.jsx";
 import { productos } from "../data/productos.js";
-import RenderCards from "../components/RenderCards.jsx";
+import RenderCards from "../components/products/RenderCards.jsx";
+import SearchBar from "../components/ui/SearchBar.jsx";
 
 /**
- * ProductsPage component
- *
- * Página con catálogo completo de productos.
- *
- * @component
- * @returns {JSX.Element}
+ * Products Page
+ * 
+ * Displays the full product catalog with filtering capabilities.
  */
 function ProductsPage() {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredProducts = useMemo(() => {
+    return productos.filter((product) =>
+      product.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [searchTerm]);
+
   return (
-    <Seccion titulo="Nuestros Productos">
-      <ul
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-stretch items-stretch"
-        aria-label="Catálogo de productos"
-      >
-        <RenderCards elementos={productos} />
-      </ul>
-    </Seccion>
+    <Section title="Nuestros Productos">
+      <header className="products-page__header">
+        <SearchBar
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
+        />
+      </header>
+
+      {filteredProducts.length > 0 ? (
+        <ul className="product-grid" aria-label="Catálogo de productos">
+          <RenderCards items={filteredProducts} />
+        </ul>
+      ) : (
+        <p className="no-results">
+          No se encontraron productos que coincidan con tu búsqueda.
+        </p>
+      )}
+    </Section>
   );
 }
 

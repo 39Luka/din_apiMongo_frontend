@@ -1,0 +1,19 @@
+/* SECCIÓN */
+.section {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+}
+
+.section__header {
+    text-align: start;
+    margin-bottom: 2rem;
+    margin-top: 1.5rem;
+}
+
+.section__title {
+    font-size: var(--heading-h2-size);
+    line-height: var(--heading-h2-line-height);
+    font-weight: var(--heading-weight-base);
+    color: var(--color-primary);
+}
