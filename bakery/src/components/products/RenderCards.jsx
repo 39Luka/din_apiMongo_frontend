@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import PropTypes from 'prop-types';
 import Card from "../ui/Card.jsx";
+import { RenderCardsPropTypes } from './RenderCards.propTypes';
 
 /**
  * Renders a list of products using the Card component.
@@ -11,22 +11,14 @@ import Card from "../ui/Card.jsx";
  * @component
  * @param {Object} props
  * @param {Array<Object>} props.items - List of products to render. Each item should have id, nombre, descripcion, and imagen.
- * @param {Object} [props.options] - Configuration options for filtering and sorting.
- * @param {number} [props.options.maxItems] - Maximum number of items to display.
- * @param {Function} [props.options.order] - Sorting function to apply to items.
  */
-function RenderCards({ items: itemsProp, options = {} }) {
-  const { maxItems, order } = options;
-  let items = [...itemsProp];
-
-  if (order) items.sort(order);
-  if (maxItems) items = items.slice(0, maxItems);
+function RenderCards({ items }) {
 
   return items.map((item) => (
     <li key={item.id}>
       <Link
-        to={`/productos/${item.id}`}
-        aria-label={`Detalles de ${item.nombre}`}
+        to={`/products/${item.id}`}
+        aria-label={`Ver detalles de ${item.nombre}`}
       >
         <Card
           title={item.nombre}
@@ -38,21 +30,6 @@ function RenderCards({ items: itemsProp, options = {} }) {
   ));
 }
 
-RenderCards.propTypes = {
-  /** Array of product items to render. */
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      nombre: PropTypes.string.isRequired,
-      descripcion: PropTypes.string,
-      imagen: PropTypes.string,
-    })
-  ).isRequired,
-  /** Optional configuration for sorting and limiting. */
-  options: PropTypes.shape({
-    maxItems: PropTypes.number,
-    order: PropTypes.func,
-  }),
-};
+RenderCards.propTypes = RenderCardsPropTypes;
 
 export default RenderCards;

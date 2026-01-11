@@ -12,13 +12,13 @@ import Nav from "./Nav.jsx";
 function Header() {
   const navLinks = [
     { to: "/home", label: "Inicio" },
-    { to: "/productos", label: "Productos" },
-    { to: "/anadir-producto", label: "Administración" },
+    { to: "/products", label: "Productos" },
+    { to: "/add-product", label: "Administración" },
   ];
 
   return (
     <header className="header">
-      <Link to="/home" className="header__link" aria-label="Ir al inicio">
+      <Link to="/home" className="header__link" aria-label="Bakery++ Inicio">
         <img
           src="/Logo.png"
           alt="Logo de Bakery++"

@@ -36,7 +36,7 @@ function AdminPage() {
     return (
         <Section title="Panel de Control">
             <header className="admin-header">
-                <h2 className="admin-header__title">Añadir Nuevo Producto</h2>
+                <h3 className="admin-header__title">Añadir Nuevo Producto</h3>
                 <div className="admin-header__controls">
                     <button onClick={handleLogout} className="button button--secondary">
                         Cerrar Sesión

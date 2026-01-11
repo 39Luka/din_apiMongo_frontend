@@ -1,35 +1,26 @@
 # Styling Guide
 
-Bakery++ uses a **modular CSS architecture** based on BEM methodology with CSS nesting for clean, maintainable styles.
+Bakery++ uses **Modern Vanilla CSS**. We don't use heavy frameworks like Tailwind or Bootstrap because we want to learn how the browser actually works.
 
-## CSS Architecture
+## 🧱 Why BEM and Nesting?
 
-### File Structure
-```
-assets/styles/
-├── index.css              # Main entry point
-├── theme.css              # Design tokens (colors, typography)
-├── reset.css              # CSS reset
-├── base.css               # Base styles
-├── utilities.css          # Utility classes
-├── components/            # Component-specific styles
-│   ├── header.css
-│   ├── nav.css
-│   ├── card.css
-│   └── ...
-└── pages/                 # Page-specific styles
-    ├── product-detail.css
-    └── admin-page.css
-```
+We use the **BEM (Block Element Modifier)** methodology for one reason: **Predictability**.
 
-## BEM Methodology
+- **B**lock: The whole component (`.card`).
+- **E**lement: A part of it (`.card__image`).
+- **M**odifier: A variation (`.card--large`).
 
-### Naming Convention
+**The Benefit**: You can change the styles of a "Card" without accidentally breaking the "Header". It keeps your styles isolated.
+
+## 🎨 Why CSS Variables?
+
+In `theme.css`, we define variables for colors and sizes:
 ```css
-.block {}
-.block__element {}
-.block--modifier {}
+:root {
+  --color-primary: #5c2905;
+}
 ```
+**The Benefit**: If you want to change the "Theme" of the bakery from brown to blue, you only change **one line of code** instead of searching through 20 files.
 
 ### Example: Card Component
 ```css
@@ -155,87 +146,19 @@ We use modern CSS nesting for cleaner code:
 - **Tablet**: 769px - 1024px
 - **Desktop**: > 1024px
 
-## Component Patterns
-
-### Card Pattern
-```css
-.card {
-    background: var(--color-white);
-    border-radius: 0.5rem;
-    overflow: hidden;
-    transition: transform 0.2s;
-    
-    &:hover {
-        transform: translateY(-4px);
-    }
-    
-    &__image {
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-    }
-}
-```
-
-### Button Pattern
-```css
-.button {
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.375rem;
-    font-weight: var(--fw-bold);
-    cursor: pointer;
-    transition: all 0.2s;
-    
-    &--primary {
-        background: var(--color-primary);
-        color: var(--color-white);
-        
-        &:hover {
-            background: rgba(92, 41, 5, 0.9);
-        }
-    }
-    
-    &--secondary {
-        background: var(--color-secondary);
-        color: var(--color-black-1);
-    }
-}
-```
-
 ## Accessibility in CSS
 
-### Focus States
-```css
-.nav__link:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-}
-```
+We use CSS to ensure the site is accessible:
+- **Focus States**: All interactive elements have high-visibility focus rings.
+- **Skip Link**: Allows keyboard users to jump straight to the main content.
+- **Reduced Motion**: Respects users who prefer less animation.
 
-### Skip Link
-```css
-.skip-link {
-    position: absolute;
-    top: -100px;
-    left: 0;
-    
-    &:focus {
-        top: 0;
-        z-index: 1000;
-    }
-}
-```
+## Styling Best Practices
 
-## Best Practices
-
-1. **Use design tokens** - Never hardcode colors or sizes
-2. **Follow BEM** - Consistent naming prevents conflicts
-3. **Mobile-first** - Start with mobile, enhance for desktop
-4. **Semantic classes** - `.card__title` not `.text-large`
-5. **Avoid !important** - Indicates architecture problems
-6. **Use CSS nesting** - Keeps related styles together
-7. **Modular files** - One file per component
-8. **Document complex styles** - Add comments for non-obvious code
+1. **Use Variables**: Always use `theme.css` for colors and sizes.
+2. **BEM Naming**: Keep names consistent to avoid style "pollution".
+3. **Mobile First**: Design for mobile first, then add bigger screens.
+4. **Simple Selectors**: Avoid deep nesting or complex selectors.
 
 ## Animation Guidelines
 

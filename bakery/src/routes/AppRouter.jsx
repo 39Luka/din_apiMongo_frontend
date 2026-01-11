@@ -5,18 +5,18 @@ import ProductosPage from "../pages/ProductsPage.jsx";
 import DetailProductPage from "../pages/DetailProductPage.jsx";
 import AdminPage from "../pages/AdminPage.jsx";
 
-const AppRouter = () => {
+function AppRouter() {
     return (
         <Routes>
             <Route path="/" element={<MainContent />}>
                 <Route index element={<Home />} />
                 <Route path="home" element={<Home />} />
-                <Route path="productos" element={<ProductosPage />} />
-                <Route path="productos/:id" element={<DetailProductPage />} />
-                <Route path="anadir-producto" element={<AdminPage />} />
+                <Route path="products" element={<ProductosPage />} />
+                <Route path="products/:id" element={<DetailProductPage />} />
+                <Route path="add-product" element={<AdminPage />} />
             </Route>
         </Routes>
     );
-};
+}
 
 export default AppRouter;

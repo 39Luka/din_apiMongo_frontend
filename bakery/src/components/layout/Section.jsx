@@ -4,7 +4,8 @@ import { useId } from "react";
  * Generic Section Component
  */
 function Section({ title, children }) {
-  const titleId = useId();
+  const baseId = useId();
+  const titleId = `section-${title.toLowerCase().replace(/\s+/g, '-')}-${baseId.replace(/:/g, '')}`;
 
   return (
     <section aria-labelledby={titleId} className="section">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useProductForm } from "../../hooks/useProductForm.js";
 import { InputField, SelectField, TextareaField } from "../forms/Field.jsx";
 
 /**
@@ -16,66 +16,12 @@ const CATEGORIES = [
  * ProductForm Component
  * 
  * Manages the creation of new products with validation and contextual help.
+ * Logic is delegated to useProductForm hook.
  * 
  * @component
  */
 function ProductForm() {
-    const [formData, setFormData] = useState({
-        nombre: "",
-        precio: "",
-        categoria: "",
-        descripcion: "",
-        imagen: "",
-    });
-
-    const [errors, setErrors] = useState({});
-
-    /**
-     * Handles changes in form fields.
-     * @param {React.ChangeEvent<HTMLInputElement|HTMLSelectElement|HTMLTextAreaElement>} e 
-     */
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
-        if (errors[name]) setErrors((prev) => ({ ...prev, [name]: null }));
-    };
-
-    /**
-     * Validates form data.
-     * @returns {Object} An object containing found errors.
-     */
-    const validate = () => {
-        const newErrors = {};
-        if (!formData.nombre.trim()) newErrors.nombre = "El nombre es obligatorio";
-        if (!formData.precio || formData.precio <= 0) newErrors.precio = "Introduce un precio válido mayor a 0";
-        if (!formData.categoria) newErrors.categoria = "Debes elegir una categoría";
-        if (!formData.descripcion.trim()) newErrors.descripcion = "La descripción no puede estar vacía";
-        if (!formData.imagen.trim()) newErrors.imagen = "La URL de la imagen es obligatoria";
-        return newErrors;
-    };
-
-    /**
-     * Handles form submission.
-     * @param {React.FormEvent} e 
-     */
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const validationError = validate();
-        if (Object.keys(validationError).length > 0) {
-            setErrors(validationError);
-            return;
-        }
-
-        console.log("Datos enviados al catálogo:", formData);
-        setFormData({
-            nombre: "",
-            precio: "",
-            categoria: "",
-            descripcion: "",
-            imagen: ""
-        });
-        alert("¡Producto enviado a consola con éxito!");
-    };
+    const { formData, errors, handleChange, handleSubmit } = useProductForm();
 
     return (
         <form onSubmit={handleSubmit} className="product-form" noValidate>

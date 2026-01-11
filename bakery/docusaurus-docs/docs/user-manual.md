@@ -2,20 +2,25 @@
 sidebar_position: 1
 ---
 
-# User Manual: Product Detail View
+# Guided Tour of Bakery++
 
-Welcome to the **Bakery++** user guide. In this section, you will learn how to use the product visualization system to explore our artisanal offerings.
+Welcome! This manual will show you how to navigate the application like a pro.
 
-## The Detail Component (ProductDetail)
+## 🏘️ First Stop: The Home Page
+When you open the app, you hit the **Home**.
+- **The Banner**: Check the latest promotions.
+- **Top Sellers**: Fast access to our most loved breads.
 
-The detail component is the primary tool that allows customers and administrators to view comprehensive information about a selected product.
+## 🥐 Second Stop: The Catalog
+Click on "Productos" in the menu to see everything we bake.
+- **Search**: Start typing any name (like "hogaza") and the list will filter instantly.
+- **View Details**: Click on any card to learn more about that specific product.
 
-### Visual Elements
-On the details screen, you will find:
-- **High-resolution image:** To appreciate the quality of our bread.
-- **Category:** A label identifying whether it's Bread, Pastries, etc.
-- **Price:** Up-to-date unit cost.
-- **Description:** Details about the production process, ingredients, and sourdough.
+## 🔎 Third Stop: Product Details
+Each product has its own story:
+- **Ingredients**: Read about what makes our bread special.
+- **Pricing**: Clear unit price display.
+- **Navigation**: Use the "Volver" button or the Nav menu to return to the shop.
 
 ## Interactive Examples (Storybook)
 
@@ -25,10 +30,10 @@ For developers and advanced users, we provide a live catalog of examples where d
 Shows how an artisanal bread is displayed with its technical description.
 <iframe src="http://localhost:6006/iframe.html?id=components-productdetail--default&viewMode=story" width="100%" height="500"></iframe>
 
-### Bollería
+### 2. Pastries
 <iframe src="http://localhost:6006/iframe.html?id=components-productdetail--bolleria&viewMode=story" width="100%" height="500"></iframe>
 
-### Sin Imagen
+### 3. Without Image
 <iframe src="http://localhost:6006/iframe.html?id=components-productdetail--sin-imagen&viewMode=story" width="100%" height="500"></iframe>
 
 ---

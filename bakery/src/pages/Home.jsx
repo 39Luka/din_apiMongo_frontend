@@ -15,25 +15,23 @@ import Banner from "../components/ui/Banner.jsx";
 function Home() {
   return (
     <>
-      {/* Banner de bienvenida */}
+      {/* Welcome Banner */}
       <Banner
         image="https://i.ibb.co/BHkPNrcv/pan-rustico.jpg"
         title="Bienvenido a Bakery++"
         content="Descubre nuestros productos frescos y artesanales cada día"
       />
 
-      {/* Sección Top Ventas */}
+      {/* Top Sales Section */}
       <Section title="Top Ventas">
         <ul
           className="product-grid"
           aria-label="Productos más vendidos"
         >
           <RenderCards
-            items={productos}
-            options={{
-              maxItems: 8,
-              order: (a, b) => b.totalVentas - a.totalVentas,
-            }}
+            items={[...productos]
+              .sort((a, b) => b.totalVentas - a.totalVentas)
+              .slice(0, 8)}
           />
         </ul>
       </Section>

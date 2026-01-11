@@ -2,23 +2,16 @@
 
 This guide covers the development workflow, best practices, and common tasks for working on Bakery++.
 
-## Getting Started
+## Guide: Adding a New Feature
 
-### Initial Setup
-```bash
-# Clone the repository
-git clone <repository-url>
-cd bakery
+If you want to add something new (like a "Sales" page), follow these steps:
 
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Start Storybook (in another terminal)
-npm run storybook
-```
+1. **Plan the Data**: Decide if you need new data in `src/data/productos.js`.
+2. **Create the Page**: Create a new file in `src/pages/SalesPage.jsx`.
+3. **Register the Route**: Add the new path in `src/routes/AppRouter.jsx`.
+4. **Add to Navigation**: Update `Header.jsx` so users can find your page.
+5. **Build Components**: If the page needs new UI, create components in `src/components/ui/`.
+6. **Style it**: Create a CSS file in `assets/styles/pages/` and import it in `index.css`.
 
 ## Development Servers
 
@@ -120,126 +113,31 @@ export const Default = {
 
 ## Code Style Guidelines
 
-### JavaScript/JSX
-- Use **functional components** with hooks
-- Use **destructuring** for props
-- Use **arrow functions** for event handlers
-- Keep components **small and focused**
-- Extract complex logic into **custom hooks**
-
-### CSS
-- Follow **BEM methodology**
-- Use **design tokens** from `theme.css`
-- Write **mobile-first** media queries
-- Keep selectors **low specificity**
-- One component = one CSS file
-
-### Documentation
-- Write **JSDoc** in English for all components
-- Document **all props** with types and descriptions
-- Add **usage examples** in Storybook
-- Keep **UI text** in Spanish
-
-## Git Workflow
-
-### Branch Naming
-```
-feature/component-name
-fix/bug-description
-docs/documentation-update
-refactor/code-improvement
-```
-
-### Commit Messages
-```
-feat: add ProductCard component
-fix: resolve navigation menu overflow
-docs: update component API reference
-style: improve button hover states
-refactor: extract form validation logic
-```
-
-## Testing Checklist
-
-Before committing:
-- [ ] Component renders without errors
-- [ ] PropTypes validation works
-- [ ] Responsive design tested (mobile, tablet, desktop)
-- [ ] Accessibility checked (keyboard navigation, screen readers)
-- [ ] Storybook story created and working
-- [ ] JSDoc documentation complete
-- [ ] No console errors or warnings
-- [ ] Code follows style guidelines
+- **Functional components**: Use hooks like `useState` and `useEffect`.
+- **Props**: Always use destructuring and define `PropTypes`.
+- **CSS**: Use BEM methodology and design tokens.
+- **Naming**: Use clear, descriptive names for variables and components.
 
 ## Common Tasks
 
 ### Adding a New Page
-1. Create page component in `src/pages/`
-2. Add route in `src/routes/AppRouter.jsx`
-3. Add navigation link in `Header.jsx` (if needed)
-4. Create page-specific styles if needed
+1. Create a component in `src/pages/`.
+2. Add the route in `src/routes/AppRouter.jsx`.
+3. Link it in the `Header.jsx` menu.
 
-### Updating Styles
-1. Modify component CSS file
-2. Check all breakpoints
-3. Verify no regressions in other components
-4. Update Storybook if visual changes
-
-### Adding New Data
-1. Update `src/data/productos.js`
-2. Ensure data structure matches PropTypes
-3. Test with new data in development
-
-## Performance Tips
-
-- Use `useMemo` for expensive computations
-- Use `useCallback` for event handlers passed as props
-- Lazy load images with `loading="lazy"`
-- Code split routes with React.lazy()
-- Optimize images before adding to project
+### Working with Data
+- Update `src/data/productos.js` to add or modify products.
 
 ## Debugging
 
-### React DevTools
-- Install React DevTools browser extension
-- Inspect component tree
-- Check props and state
-- Profile performance
+- **React DevTools**: Use it to inspect props and state.
+- **Console**: Use `console.log()` to check data values.
+- **Storybook**: Use it to test components in isolation.
 
-### Console Debugging
-```javascript
-console.log('Debug:', { prop1, prop2 });
-console.table(arrayData);
-console.error('Error:', errorMessage);
-```
+## Build for Production
 
-### Storybook Debugging
-- Isolate component in Storybook
-- Test different prop combinations
-- Check console for PropTypes warnings
-- Use Controls panel to test edge cases
-
-## Build and Deploy
-
-### Production Build
+To create a final build:
 ```bash
 npm run build
 ```
-- Creates optimized build in `dist/`
-- Minifies and bundles code
-- Ready for deployment
-
-### Preview Production Build
-```bash
-npm run preview
-```
-- Test production build locally
-- Verify all features work
-
-## Resources
-
-- [React Documentation](https://react.dev/)
-- [Vite Guide](https://vitejs.dev/guide/)
-- [Storybook Docs](https://storybook.js.org/docs)
-- [BEM Methodology](http://getbem.com/)
-- [MDN Web Docs](https://developer.mozilla.org/)
+The output will be in the `dist/` folder.

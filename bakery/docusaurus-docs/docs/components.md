@@ -5,74 +5,34 @@
 
 ## Component Organization
 
-Bakery++ components are organized into **4 categories** for better maintainability:
+Bakery++ components are organized into **4 categories**. Choosing the right one helps keep the project clean:
 
 ### 🏗️ Layout (`components/layout/`)
-Structural components that define the application's layout.
-
-- **Header** - Top navigation with logo and menu
-- **Footer** - Page footer with copyright
-- **Nav** - Responsive navigation menu
-- **MainContent** - Main content wrapper (React Router Outlet)
-- **Section** - Page section container
+**When to use**: These are the "bones" of the app. Use these for things that stay on the screen across different pages or wrap the entire view.
+- **Header/Footer**: Permanent top and bottom bars.
+- **Nav**: The main menu.
+- **Section**: Use this to wrap every new content block on a page.
 
 ### 🎨 UI (`components/ui/`)
-Reusable presentational components.
-
-- **Card** - Product preview card
-- **Banner** - Hero banner with image
-- **SearchBar** - Search input with filtering
+**When to use**: These are "dumb" components. They only care about how things look. Use these for reusable pieces that don't know anything about "Products" or "Bakery" logic.
+- **Card**: A generic box with an image and text.
+- **Banner**: A big hero section.
+- **SearchBar**: Just an input field with an icon.
 
 ### 🛍️ Products (`components/products/`)
-Product-specific business logic components.
-
-- **ProductDetail** - Full product display
-- **ProductForm** - Add product form with validation
-- **RenderCards** - Smart component for product grids
+**When to use**: These are "smart" components. They are specific to our bakery. Use these when you need to handle product data, prices, or categories.
+- **ProductDetail**: Shows all data for one specific bread/pastry.
+- **RenderCards**: Takes a list of products and turns them into a grid of cards.
 
 ### 📝 Forms (`components/forms/`)
-Reusable form components.
-
-- **Field** - InputField, TextareaField, SelectField
-
-## Quick Links
-
-| Component | Storybook | Source Code |
-|-----------|-----------|-------------|
-| Card | [View](http://localhost:6006/?path=/docs/components-card--docs) | [Card.jsx](file:///c:/Users/Usuario/Documents/Bakery2/Bakery2/bakery/src/components/ui/Card.jsx) |
-| Banner | [View](http://localhost:6006/?path=/docs/components-banner--docs) | [Banner.jsx](file:///c:/Users/Usuario/Documents/Bakery2/Bakery2/bakery/src/components/ui/Banner.jsx) |
-| SearchBar | [View](http://localhost:6006/?path=/docs/components-searchbar--docs) | [SearchBar.jsx](file:///c:/Users/Usuario/Documents/Bakery2/Bakery2/bakery/src/components/ui/SearchBar.jsx) |
-| Nav | [View](http://localhost:6006/?path=/docs/components-nav--docs) | [Nav.jsx](file:///c:/Users/Usuario/Documents/Bakery2/Bakery2/bakery/src/components/layout/Nav.jsx) |
-| Header | [View](http://localhost:6006/?path=/docs/components-header--docs) | [Header.jsx](file:///c:/Users/Usuario/Documents/Bakery2/Bakery2/bakery/src/components/layout/Header.jsx) |
-| Footer | [View](http://localhost:6006/?path=/docs/components-footer--docs) | [Footer.jsx](file:///c:/Users/Usuario/Documents/Bakery2/Bakery2/bakery/src/components/layout/Footer.jsx) |
-| Section | [View](http://localhost:6006/?path=/docs/layout-section--docs) | [Section.jsx](file:///c:/Users/Usuario/Documents/Bakery2/Bakery2/bakery/src/components/layout/Section.jsx) |
-| ProductDetail | [View](http://localhost:6006/?path=/docs/components-productdetail--docs) | [ProductDetail.jsx](file:///c:/Users/Usuario/Documents/Bakery2/Bakery2/bakery/src/components/products/ProductDetail.jsx) |
-| ProductForm | [View](http://localhost:6006/?path=/docs/components-productform--docs) | [ProductForm.jsx](file:///c:/Users/Usuario/Documents/Bakery2/Bakery2/bakery/src/components/products/ProductForm.jsx) |
-| RenderCards | [View](http://localhost:6006/?path=/docs/components-rendercards--docs) | [RenderCards.jsx](file:///c:/Users/Usuario/Documents/Bakery2/Bakery2/bakery/src/components/products/RenderCards.jsx) |
-| Fields | [View](http://localhost:6006/?path=/docs/components-fields--docs) | [Field.jsx](file:///c:/Users/Usuario/Documents/Bakery2/Bakery2/bakery/src/components/forms/Field.jsx) |
+**When to use**: Use these to build forms. They handle labels, error messages, and validation.
 
 ## Design Principles
 
-### Composition
-Components are designed to be composed together:
-```jsx
-<Section title="Products">
-    <SearchBar searchTerm={term} onSearchChange={setTerm} />
-    <div className="product-grid">
-        <RenderCards items={products} />
-    </div>
-</Section>
-```
-
-### Props Validation
-All components use PropTypes - check Storybook for complete API docs.
-
-### Accessibility
-- Semantic HTML
-- ARIA labels
-- Keyboard navigation
-- Focus management
+- **Composition**: Components are designed to work together hierarchically.
+- **Props Validation**: Every component has `PropTypes` defined to prevent bugs.
+- **Accessibility**: Built-in support for ARIA labels and semantic HTML.
 
 ---
 
-**📚 For detailed component APIs, examples, and interactive demos → [Open Storybook](http://localhost:6006)**
+**📚 For detailed component APIs and examples → [Open Storybook](http://localhost:6006)**

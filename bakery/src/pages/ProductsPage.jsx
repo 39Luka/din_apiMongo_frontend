@@ -1,6 +1,5 @@
-import { useState, useMemo } from "react";
+import { useProductSearch } from "../hooks/useProductSearch.js";
 import Section from "../components/layout/Section.jsx";
-import { productos } from "../data/productos.js";
 import RenderCards from "../components/products/RenderCards.jsx";
 import SearchBar from "../components/ui/SearchBar.jsx";
 
@@ -10,13 +9,7 @@ import SearchBar from "../components/ui/SearchBar.jsx";
  * Displays the full product catalog with filtering capabilities.
  */
 function ProductsPage() {
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const filteredProducts = useMemo(() => {
-    return productos.filter((product) =>
-      product.nombre.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  }, [searchTerm]);
+  const { searchTerm, setSearchTerm, filteredProducts } = useProductSearch();
 
   return (
     <Section title="Nuestros Productos">

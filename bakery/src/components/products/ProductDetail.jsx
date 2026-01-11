@@ -1,4 +1,5 @@
-import PropTypes from 'prop-types';
+import { formatCurrency } from '../../utils/formatters.js';
+import { ProductDetailPropTypes } from './ProductDetail.propTypes';
 
 /**
  * ProductDetail Component
@@ -38,7 +39,7 @@ function ProductDetail({ nombre, precio, categoria, descripcion, imagen }) {
                     </header>
 
                     <p className="product-detail__price">
-                        {Number(precio).toFixed(2)}€
+                        {formatCurrency(precio)}
                     </p>
 
                     <p className="product-detail__description">
@@ -64,17 +65,6 @@ function ProductDetail({ nombre, precio, categoria, descripcion, imagen }) {
     );
 }
 
-ProductDetail.propTypes = {
-    /** The name of the product. */
-    nombre: PropTypes.string.isRequired,
-    /** The price of the product in Euros. */
-    precio: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    /** The category the product belongs to. */
-    categoria: PropTypes.string,
-    /** A detailed description of the product. */
-    descripcion: PropTypes.string,
-    /** The URL of the product image. */
-    imagen: PropTypes.string,
-};
+ProductDetail.propTypes = ProductDetailPropTypes;
 
 export default ProductDetail;

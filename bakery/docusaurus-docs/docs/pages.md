@@ -1,27 +1,19 @@
 # Pages and Routing
 
-Bakery++ is a Single Page Application (SPA) built with `react-router-dom`.
+Bakery++ works as a Single Page Application (SPA). This means it never reloads the entire browser; instead, it swaps the "center" of the page depending on the URL.
 
-## 🛣️ Application Routes
+## 🛣️ Where can you go?
 
-| Path | Component | Description |
+| Path | Component | The Page's Role |
 | :--- | :--- | :--- |
-| `/home` | `Home` | Landing page with the hero banner and top sellers. |
-| `/productos` | `ProductsPage` | Full catalog with search and filtering. |
-| `/productos/:id` | `DetailProductPage` | Dynamic route for individual product details. |
-| `/anadir-producto` | `AdminPage` | Protected area (simulated) for product management. |
+| `/home` | `Home` | Shows a warm welcome with the main banner and popular products. |
+| `/productos` | `ProductsPage` | The main shop window where you can search through everything. |
+| `/productos/:id` | `DetailProductPage` | A focused view for one specific item. |
+| `/anadir-producto` | `AdminPage` | A management area where new products are added. |
 
-## 📐 Page Structure
+## 📐 The Page "Container"
 
-All pages are wrapped by the `MainContent` component, which provides a standard padding and layout constraint.
-
-### Home Page
-Displays the `Banner` and a `Section` containing a `RenderCards` list filtered by top sales.
-
-### Products Page
-Combines the `SearchBar` with a filtered list of `Card` components. It uses the `useMemo` hook to optimize search performance.
-
-### Admin Page
-Uses a local state `isAuthenticated` to toggle between:
-1.  **Login View**: A centered card (`admin-login-card`) to prompt for simulated credentials.
-2.  **Dashboard View**: The `ProductForm` for operational tasks.
+Every page you visit is automatically placed inside `MainContent`. This component is like a frame that ensures:
+1.  **Consistent Spacing**: Content never touches the screen edges.
+2.  **Layout Logic**: The Header and Footer always stay where they belong.
+3.  **Smooth Transitions**: Using the `Outlet` from React Router to swap content cleanly.

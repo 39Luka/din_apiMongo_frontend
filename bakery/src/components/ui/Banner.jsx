@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import { BannerPropTypes } from './Banner.propTypes';
 
 /**
  * Banner Component
@@ -19,7 +19,7 @@ function Banner({ image, title, content }) {
         />
         <div className="banner__overlay" aria-hidden="true" />
         <figcaption className="banner__content">
-          <h1 className="banner__title">{title}</h1>
+          <h2 className="banner__title">{title}</h2>
           <p className="banner__text">{content}</p>
         </figcaption>
       </figure>
@@ -27,13 +27,6 @@ function Banner({ image, title, content }) {
   );
 }
 
-Banner.propTypes = {
-  /** URL for the banner's background image. */
-  image: PropTypes.string.isRequired,
-  /** Prominent main title. */
-  title: PropTypes.string.isRequired,
-  /** Additional text or tagline. */
-  content: PropTypes.string,
-};
+Banner.propTypes = BannerPropTypes;
 
 export default Banner;

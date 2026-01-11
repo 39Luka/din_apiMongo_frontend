@@ -2,21 +2,33 @@
 
 Bakery++ follows a **component-based architecture** with clear separation of concerns and organized folder structure.
 
-## System Overview
+## How the App Fits Together
+
+The application is structured like a tree. `App.jsx` is the root, and it uses `AppRouter` to decide which page to show.
 
 ```mermaid
 graph TD
-    A[App.jsx] --> B[Header]
-    A --> C[AppRouter]
-    A --> D[Footer]
-    C --> E[MainContent]
-    E --> F[Pages]
-    F --> G[Home]
-    F --> H[ProductsPage]
-    F --> I[DetailProductPage]
-    F --> J[AdminPage]
-    B --> K[Nav]
+    Root[App.jsx] --> Layout[Header/Nav/Footer]
+    Root --> Router[AppRouter]
+    Router --> Pages[Pages Catalog/Details/Admin]
+    Pages --> UI[UI Components Card/Banner]
 ```
+
+## Data Flow: From File to Screen
+
+Understanding how data moves is key to understanding the project:
+
+1. **Data Definition**: All products live in `src/data/productos.js`.
+2. **Fetching**: Pages import this data directly. 
+3. **Downstream**: The data is passed down to components (like `Card` or `ProductDetail`) via **Props**.
+4. **State**: We use `useState` for things that change (like what the user types in the search bar).
+
+## Accessibility Features
+
+We don't just want it to look good; it must be usable by everyone:
+- **Semantic HTML**: We use `<header>`, `<main>`, etc., so screen readers know exactly where they are.
+- **Skip Link**: A hidden link that appears on TAB focus, letting users jump straight to the content.
+- **Logical IDs**: Each section has a clear ID (like `id="products-section"`) used internally for navigation.
 
 ## Component Categories
 
@@ -29,7 +41,7 @@ Structural components that define the application's layout:
 | `Footer` | Bottom page footer | - |
 | `Nav` | Responsive navigation menu | `links` |
 | `MainContent` | Main content wrapper with Outlet | - |
-| `Section` | Page section with title | `title`, `children` |
+| `Section` | Page section with title and accessible IDs | `title`, `children` |
 
 ### UI Components (`components/ui/`)
 Reusable presentational components:
@@ -37,7 +49,7 @@ Reusable presentational components:
 | Component | Purpose | Key Props |
 |-----------|---------|-----------|
 | `Card` | Product preview card | `title`, `description`, `image` |
-| `Banner` | Hero banner with image | `image`, `title`, `content` |
+| `Banner` | Hero banner with image and h2 title | `image`, `title`, `content` |
 | `SearchBar` | Search input with icon | `searchTerm`, `onSearchChange` |
 
 ### Product Components (`components/products/`)
@@ -47,7 +59,7 @@ Domain-specific components for products:
 |-----------|---------|-----------|
 | `ProductDetail` | Full product information display | `nombre`, `precio`, `categoria`, etc. |
 | `ProductForm` | Form for adding products | - |
-| `RenderCards` | Maps products to Card components | `items`, `options` |
+| `RenderCards` | Maps products to Card components | `items` |
 
 ### Form Components (`components/forms/`)
 Reusable form field components:
@@ -71,62 +83,17 @@ Reusable form field components:
 ## Data Flow
 
 ### State Management
-- **Local state** with `useState` for component-specific state
-- **Props drilling** for passing data down the tree
-- **No global state** - simple application doesn't require Redux/Context
+- **Local state**: We use `useState` for simple component logic.
+- **Props**: Data is passed from parent to children components.
+- No complex global state (Redux/Context) is needed for this project.
 
-### Data Sources
-- `src/data/productos.js` - Mock product data
-- Future: Could be replaced with API calls
+### Data Storage
+- Products are stored in `src/data/productos.js` as a static array.
 
-## Design Patterns
+## Accessibility Features
 
-### Component Composition
-Components are composed hierarchically:
-```
-App
-└── Header
-    └── Nav
-└── AppRouter
-    └── MainContent
-        └── Page
-            └── Section
-                └── Components
-└── Footer
-```
-
-### Props Pattern
-- **Controlled components** for forms
-- **Render props** for RenderCards
-- **Prop validation** with PropTypes
-
-### File Organization
-```
-ComponentCategory/
-├── Component.jsx        # Component implementation
-└── Component.propTypes.js  # PropTypes definitions (when extracted)
-```
-
-## Performance Considerations
-
-- **Code splitting** via React Router
-- **useMemo** for expensive computations (search filtering)
-- **Lazy loading** could be added for images
-- **Vite** for fast HMR during development
-
-## Accessibility
-
-- **Semantic HTML** (`<header>`, `<nav>`, `<main>`, `<footer>`)
-- **ARIA labels** for interactive elements
-- **Skip link** for keyboard navigation
-- **Focus management** in modals/menus
-- **Alt text** for all images
-
-## Future Enhancements
-
-- API integration for real data
-- Authentication system
-- Shopping cart functionality
-- Admin dashboard with CRUD operations
-- Image optimization and lazy loading
-- Unit and integration tests
+We prioritize making the site usable for everyone:
+- **Semantic HTML**: Using tags like `<header>`, `<main>`, and `<footer>`.
+- **Keyboard Friendly**: Clear focus rings and a "Skip to Content" link.
+- **Screen Readers**: Descriptive ARIA labels and alt text for all images.
+- **Dynamic IDs**: Logical IDs for sections to help navigation.

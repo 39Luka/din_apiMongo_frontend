@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import { SearchBarPropTypes } from './SearchBar.propTypes';
 
 /**
  * SearchBar Component
@@ -40,11 +40,6 @@ function SearchBar({ searchTerm, onSearchChange }) {
     );
 }
 
-SearchBar.propTypes = {
-    /** Current value of the search term. */
-    searchTerm: PropTypes.string.isRequired,
-    /** Callback function triggered when the search text changes. */
-    onSearchChange: PropTypes.func.isRequired,
-};
+SearchBar.propTypes = SearchBarPropTypes;
 
 export default SearchBar;

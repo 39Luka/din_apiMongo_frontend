@@ -1,49 +1,51 @@
-# Panadería 
-El proyecto actual trata de una página web para una panadería.
+# Bakery++ 🥐
+Una aplicación web moderna, accesible para una panadería artesanal.
 
-Actualmente se ha desarrollado la página de inicio, la de productos y la detalle de producto.
+## Accesibilidad, Usabilidad y Mejores Prácticas
 
-## Justificaciones de accesibilidad, usabilidad y buenas prácticas
+### Accesibilidad (A11y)
 
-### Accesibilidad
-
-- Se ha utilizado una jerarquía semántica adecuada con etiquetas HTML5 como main, section, header, article y figure, etiquetas aria, arialabelledby, tabindex y textos alternativos descriptivos a las imágenes para mejorar la accesibilidad.
-  
-
-- Se ha añadido un enlace "skip to main content" para facilitar la navegación a usuarios de lectores de pantalla.
-
-![Skip to main content](docs/images/skip.png)
-
-- Se ha comprobado que la página puede ser leida por un lector de pantallas con la extensión Read Aloud.
-  
-![Read Aloud](docs/images/lector.png)
+- **HTML Semántico**: Uso adecuado de etiquetas HTML5 como `<main>`, `<section>`, `<header>`, `<article>`, y `<figure>` para proporcionar una estructura clara del documento.
+- **ARIA y Landmarks**: Uso estratégico de atributos ARIA (`aria-label`, `aria-labelledby`) para ayudar a los lectores de pantalla a navegar por componentes complejos.
+- **Navegación por Teclado**: Totalmente navegable mediante el teclado. Incluimos un enlace de "Saltar al contenido principal" para mayor eficiencia.
+![Vista previa de la aplicación](docs/images/app-home.png)
+![Indicadores de foco en tarjetas](docs/images/app-accessibility.png)
+- **Texto Alt**: Texto alternativo descriptivo para todas las imágenes de productos.
 
 
-### Usabilidad
-- Se ha implementado un diseño responsivo para adaptarse a diferentes tamaños de pantalla.
-  
-![Diseño responsivo](docs/images/menu.png)
+### Usabilidad (UX/UI)
+Diseñado pensando en el usuario, centrándose en la claridad, la velocidad y la capacidad de respuesta.
 
-### Buenas prácticas
-- Se ha organizado el proyecto con una estructura Types-Base.
+- **Diseño Responsivo**: Enfoque "mobile-first" que garantiza una experiencia premium en computadoras de escritorio, tabletas y teléfonos inteligentes.
+- **Navegación Intuitiva**: Jerarquía de información clara y patrones de navegación estandarizados.
 
-- Se han desarrollado componentes reutilizables.
-  
-- Se ha utilizado Tailwind CSS para el diseño, extrayendo los colores y estilos mediante Anima y retocando las clases generadas.
-  
-[Link a Index](src/assets/styles/index.css)
+### Mejores Prácticas Técnicas
+- **Hooks Personalizados**: La lógica de negocio (validación de formularios, búsqueda) está encapsulada en hooks de React reutilizables (`useProductForm`, `useProductSearch`).
+- **Componentes Documentados**: Documentación completa en JSDoc y Storybook para cada elemento de la interfaz de usuario.
 
-[Link a Theme](src/assets/styles/theme.css)
+## Primeros Pasos
 
-- Se ha mantenido un código limpio y bien comentado para facilitar el mantenimiento y la comprensión del proyecto.
-  
-- Se ha utilizado control de versiones con Git para gestionar los cambios en el proyecto.
-  
+### Instalación
+```bash
+npm install
+```
 
-## Sitios usados
-Para la busqueda de imágenes se han utilizado los siguientes sitios:
-- pexels.com
-- freepik
+### Desarrollo
+```bash
+npm run dev
+```
 
-Para el alojamiento de las imágenes se ha utilizado:
-- imgbb.com
+### Documentación (Storybook)
+```bash
+npm run storybook
+```
+
+### Documentación Manual (Docusaurus)
+```bash
+cd docusaurus-docs
+npm start
+```
+
+## Créditos
+- **Imágenes**: [Pexels](https://pexels.com), [Freepik](https://freepik.com)
+- **Hosting**: Imágenes alojadas en [ImgBB](https://imgbb.com)

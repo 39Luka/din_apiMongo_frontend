@@ -18,8 +18,8 @@ export default {
 
 const mockLinks = [
     { to: '/home', label: 'Inicio' },
-    { to: '/productos', label: 'Productos' },
-    { to: '/admin', label: 'Administración' },
+    { to: '/products', label: 'Productos' },
+    { to: '/add-product', label: 'Administración' },
 ];
 
 export const Desktop = {
