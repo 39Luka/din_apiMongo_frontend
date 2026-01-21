@@ -2,14 +2,20 @@ import { useProductSearch } from "../hooks/useProductSearch.js";
 import Section from "../components/layout/Section.jsx";
 import RenderCards from "../components/products/RenderCards.jsx";
 import SearchBar from "../components/ui/SearchBar.jsx";
-
+import useProducts from "@/hooks/useProducts.js";
+import Spinner from "@/components/ui/Spinner.jsx";
 /**
  * Products Page
  * 
  * Displays the full product catalog with filtering capabilities.
  */
 function ProductsPage() {
-  const { searchTerm, setSearchTerm, filteredProducts } = useProductSearch();
+  const { products, loading, error } = useProducts();
+  const { searchTerm, setSearchTerm, filteredProducts } = useProductSearch(products);
+
+  if (loading) return <Spinner />;
+  if (error) return <p>Error al cargar los productos.</p>;
+
 
   return (
     <Section title="Nuestros Productos">

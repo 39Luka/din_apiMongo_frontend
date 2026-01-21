@@ -1,18 +1,15 @@
-// Home.jsx
 import Section from "../components/layout/Section.jsx";
-import { productos } from "../data/productos.js";
 import RenderCards from "../components/products/RenderCards.jsx";
 import Banner from "../components/ui/Banner.jsx";
+import useProducts from "@/hooks/useProducts.js";
+import Spinner from "@/components/ui/Spinner.jsx";
 
-/**
- * Home Component
- *
- * Home page featuring a banner and top-selling products.
- *
- * @component
- * @returns {JSX.Element}
- */
 function Home() {
+  const { products, loading, error } = useProducts();
+
+  if (loading) return <Spinner />;
+  if (error) return <p>Error al cargar los productos: {error}</p>;
+
   return (
     <>
       {/* Welcome Banner */}
@@ -22,16 +19,11 @@ function Home() {
         content="Descubre nuestros productos frescos y artesanales cada día"
       />
 
-      {/* Top Sales Section */}
-      <Section title="Top Ventas">
-        <ul
-          className="product-grid"
-          aria-label="Productos más vendidos"
-        >
+      {/* Products Section */}
+      <Section title="Productos Destacados">
+        <ul className="product-grid" aria-label="Productos destacados">
           <RenderCards
-            items={[...productos]
-              .sort((a, b) => b.totalVentas - a.totalVentas)
-              .slice(0, 8)}
+            items={[...(products || [])].slice(0, 8)} 
           />
         </ul>
       </Section>

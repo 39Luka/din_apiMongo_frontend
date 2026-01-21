@@ -1,5 +1,4 @@
 import { useState, useMemo } from 'react';
-import { productos } from '../data/productos.js';
 
 /**
  * Custom hook for searching products.
@@ -7,7 +6,7 @@ import { productos } from '../data/productos.js';
  * 
  * @returns {Object} { searchTerm, setSearchTerm, filteredProducts }
  */
-const useProductSearch = () => {
+const useProductSearch = (productos = []) => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const filteredProducts = useMemo(() => {
@@ -15,7 +14,7 @@ const useProductSearch = () => {
         return productos.filter((product) =>
             product.nombre.toLowerCase().includes(searchTerm.toLowerCase())
         );
-    }, [searchTerm]);
+    }, [searchTerm, productos]);
 
     return {
         searchTerm,
