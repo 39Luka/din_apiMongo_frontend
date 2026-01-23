@@ -42,9 +42,9 @@ const useProductForm = () => {
       return;
     }
 
-    submitProduct(mapProductToAPI(formData)).then((created) => {
+    submitProduct(formData).then((created) => {
       if (created) {
-        alert("¡Producto creado correctamente!");
+
         setFormData({
           nombre: "",
           precio: "",

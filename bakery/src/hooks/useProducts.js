@@ -12,7 +12,7 @@ function useProducts() {
     setError(null);
 
     getAllProducts()
-      .then(res => setProducts(mapProductsDTO(res.data) || [])) 
+      .then(res => setProducts(mapProductsDTO(res.data.data) || [])) 
       .catch(err => setError(err?.message || String(err)))
       .finally(() => setLoading(false));
   }, []);

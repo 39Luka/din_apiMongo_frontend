@@ -12,7 +12,7 @@ function useCreateProduct() {
         setError(null);
 
         const apiData = mapProductToAPI(productData);
-
+        console.log(apiData)
         return postOneProduct(apiData)
             .then(res => {
                 setProduct(res.data);

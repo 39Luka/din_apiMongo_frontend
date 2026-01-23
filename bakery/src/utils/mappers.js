@@ -1,21 +1,16 @@
 export function mapProductsDTO(apiData) {
   if (!apiData) return [];
-  if (Array.isArray(apiData)) return apiData;
 
-  if (apiData.productos && Array.isArray(apiData.productos)) {
-    return apiData.productos.map(item => ({
-      id: item.id,
-      nombre: item.nombre,
-      descripcion: item.descripcion,
-      imagen: item.imagen,
-      precio: item.precio,
-      totalVentas: item.totalVentas,
-      categoria: item.categoria,
-    }));
-  }
-
-  return [];
+  return apiData.map(item => ({
+    id: item._id,
+    nombre: item.name,
+    descripcion: item.description,
+    imagen: item.photo,
+    precio: item.price,
+    categoria: item.category,
+  }));
 }
+
 
 export function mapProductToAPI(product) {
   return {
@@ -26,3 +21,17 @@ export function mapProductToAPI(product) {
     photo: product.imagen || "" 
   }
 }
+
+export function mapProductDTO(apiProduct) {
+  if (!apiProduct) return null;
+
+  return {
+    id: apiProduct._id,
+    nombre: apiProduct.name,
+    descripcion: apiProduct.description,
+    imagen: apiProduct.photo,
+    precio: apiProduct.price,
+    categoria: apiProduct.category,
+  };
+}
+

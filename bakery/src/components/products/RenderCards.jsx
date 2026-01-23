@@ -17,6 +17,7 @@ function RenderCards({ items = [] }) {
         <li key={item.id}>
           <Link
             to={`/products/${item.id}`}
+            state={{ product: item }} 
             aria-label={`Ver detalles de ${item.nombre}`}
           >
             <Card

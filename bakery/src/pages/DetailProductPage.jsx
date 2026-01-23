@@ -1,7 +1,6 @@
-import { useParams } from "react-router-dom";
-import { productos } from "../data/productos.js";
+import { useParams, useLocation } from "react-router-dom";
 import ProductDetail from "../components/products/ProductDetail.jsx";
-
+import useProduct from "@/hooks/useProduct.js";
 /**
  * Product Detail Page
  * 
@@ -12,18 +11,20 @@ import ProductDetail from "../components/products/ProductDetail.jsx";
  */
 function DetailProductPage() {
   const { id } = useParams();
-  const product = productos.find((p) => p.id === parseInt(id));
+  const location = useLocation();
 
-  if (!product) {
-    return (
-      <section className="product-error">
-        <h1>Producto no encontrado</h1>
-        <p>Lo sentimos, el producto que buscas no existe.</p>
-      </section>
-    );
-  }
+  const productFromState = location.state?.product;
+
+  const { product: productFromAPI, loading, error } = useProduct(id);
+
+  const product = productFromState || productFromAPI;
+
+  if (loading) return <p>Cargando producto...</p>;
+  if (error) return <p>Error al cargar producto: {error}</p>;
+  if (!product) return <p>Producto no encontrado</p>;
 
   return <ProductDetail {...product} />;
 }
+
 
 export default DetailProductPage;
