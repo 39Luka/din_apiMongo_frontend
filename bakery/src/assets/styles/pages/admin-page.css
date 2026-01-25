@@ -1,14 +1,13 @@
 /* ADMIN PAGE CUSTOM STYLES */
 
-.admin-page__login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 40vh;
-    padding: 2rem;
+.admin-page__container {
+    max-width: 60rem;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .admin-login-card {
+    margin: 2rem auto;
     background-color: var(--color-white);
     padding: 2.5rem;
     border-radius: 1rem;

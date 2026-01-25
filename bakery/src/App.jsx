@@ -3,6 +3,9 @@ import "./assets/styles/index.css";
 import AppRouter from "./routes/AppRouter.jsx";
 import Header from "./components/layout/Header.jsx";
 import Footer from "./components/layout/Footer.jsx";
+import SkipLink from "./components/ui/SkipLink.jsx";
+
+import { UserProvider } from "./context/UserContext.jsx";
 
 /**
  * App component
@@ -14,11 +17,14 @@ import Footer from "./components/layout/Footer.jsx";
  */
 function App() {
   return (
-    <div className="app-layout">
-      <Header />
-      <AppRouter />
-      <Footer />
-    </div>
+    <UserProvider>
+      <div className="app-layout">
+        <SkipLink />
+        <Header />
+        <AppRouter />
+        <Footer />
+      </div>
+    </UserProvider>
   );
 }
 

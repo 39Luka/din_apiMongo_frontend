@@ -1,4 +1,4 @@
-import SearchBar from '../../components/ui/SearchBar.jsx';
+import SearchBar from '../../components/common/SearchBar.jsx';
 
 export default {
     title: 'Components/SearchBar',

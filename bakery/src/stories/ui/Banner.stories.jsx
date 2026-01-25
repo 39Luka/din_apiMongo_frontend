@@ -1,4 +1,4 @@
-import Banner from '../../components/ui/Banner.jsx';
+import Banner from '../../components/common/Banner.jsx';
 
 export default {
     title: 'Components/Banner',

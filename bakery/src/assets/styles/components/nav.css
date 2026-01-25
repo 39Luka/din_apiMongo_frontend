@@ -38,15 +38,16 @@
     font-size: var(--text-normal-size);
     font-weight: var(--fw-bold);
     border-radius: 0.375rem;
-    color: var(--color-black-1);
-    transition: color 0.2s;
+    color: var(--color-primary);
+    /* Changed from black-1 to primary (brown) */
+    transition: color 0.2s, background-color 0.2s;
 }
 
 .nav__link:hover,
 .nav__link--active {
     color: var(--color-primary);
-    background-color: rgba(92, 41, 5, 0.05);
-    /* Tinte muy sutil del color primario */
+    background-color: rgba(92, 41, 5, 0.1);
+    /* Slightly stronger tint on hover */
 }
 
 /* =========================================

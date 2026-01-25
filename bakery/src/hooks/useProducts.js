@@ -1,9 +1,9 @@
-import { getAllProducts } from "@/services/productosService";
+import { getAllProducts } from "@/services/productService";
 import { useEffect, useState } from "react";
-import { mapProductsDTO } from "@/utils/mappers";
+import { mapProductsFromAPI } from "@/utils/mappers";
 
 function useProducts() {
-  const [products, setProducts] = useState([]); 
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -12,7 +12,7 @@ function useProducts() {
     setError(null);
 
     getAllProducts()
-      .then(res => setProducts(mapProductsDTO(res.data.data) || [])) 
+      .then(res => setProducts(mapProductsFromAPI(res.data.data) || []))
       .catch(err => setError(err?.message || String(err)))
       .finally(() => setLoading(false));
   }, []);

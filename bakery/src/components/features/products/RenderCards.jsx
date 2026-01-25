@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Card from "../ui/Card.jsx";
+import Card from "../../common/Card.jsx";
 import { RenderCardsPropTypes } from './RenderCards.propTypes';
 
 /**
@@ -7,7 +7,7 @@ import { RenderCardsPropTypes } from './RenderCards.propTypes';
  * 
  * @component
  * @param {Object} props
- * @param {Array<Object>} props.items - List of products to render. Each item should have id, nombre, descripcion, and imagen.
+ * @param {Array<Object>} props.items - List of products to render. Each item should have id, name, description, and image.
  */
 function RenderCards({ items = [] }) {
   if (!items.length) return <p>No hay productos para mostrar.</p>;
@@ -17,13 +17,13 @@ function RenderCards({ items = [] }) {
         <li key={item.id}>
           <Link
             to={`/products/${item.id}`}
-            state={{ product: item }} 
-            aria-label={`Ver detalles de ${item.nombre}`}
+            state={{ product: item }}
+            aria-label={`Ver detalles de ${item.name}`}
           >
             <Card
-              title={item.nombre}
-              description={item.descripcion}
-              image={item.imagen}
+              title={item.name}
+              description={item.description}
+              image={item.image}
             />
           </Link>
         </li>

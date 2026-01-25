@@ -1,14 +1,27 @@
 import Section from "../components/layout/Section.jsx";
-import RenderCards from "../components/products/RenderCards.jsx";
-import Banner from "../components/ui/Banner.jsx";
+import RenderCards from "../components/features/products/RenderCards.jsx";
+import Banner from "../components/common/Banner.jsx";
 import useProducts from "@/hooks/useProducts.js";
 import Spinner from "@/components/ui/Spinner.jsx";
 
 function Home() {
   const { products, loading, error } = useProducts();
 
-  if (loading) return <Spinner />;
-  if (error) return <p>Error al cargar los productos: {error}</p>;
+  if (loading) {
+    return (
+      <Section title="Cargando...">
+        <Spinner />
+      </Section>
+    );
+  }
+
+  if (error) {
+    return (
+      <Section title="Error">
+        <p className="error-message">Error al cargar los productos: {error}</p>
+      </Section>
+    );
+  }
 
   return (
     <>
@@ -23,7 +36,7 @@ function Home() {
       <Section title="Productos Destacados">
         <ul className="product-grid" aria-label="Productos destacados">
           <RenderCards
-            items={[...(products || [])].slice(0, 8)} 
+            items={[...(products || [])].slice(0, 8)}
           />
         </ul>
       </Section>

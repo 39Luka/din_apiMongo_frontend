@@ -31,10 +31,10 @@ Shows how an artisanal bread is displayed with its technical description.
 <iframe src="http://localhost:6006/iframe.html?id=components-productdetail--default&viewMode=story" width="100%" height="500"></iframe>
 
 ### 2. Pastries
-<iframe src="http://localhost:6006/iframe.html?id=components-productdetail--bolleria&viewMode=story" width="100%" height="500"></iframe>
+<iframe src="http://localhost:6006/iframe.html?id=components-productdetail--pastry&viewMode=story" width="100%" height="500"></iframe>
 
 ### 3. Without Image
-<iframe src="http://localhost:6006/iframe.html?id=components-productdetail--sin-imagen&viewMode=story" width="100%" height="500"></iframe>
+<iframe src="http://localhost:6006/iframe.html?id=components-productdetail--no-image&viewMode=story" width="100%" height="500"></iframe>
 
 ---
 

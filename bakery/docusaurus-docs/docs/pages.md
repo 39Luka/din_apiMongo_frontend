@@ -7,9 +7,9 @@ Bakery++ works as a Single Page Application (SPA). This means it never reloads t
 | Path | Component | The Page's Role |
 | :--- | :--- | :--- |
 | `/home` | `Home` | Shows a warm welcome with the main banner and popular products. |
-| `/productos` | `ProductsPage` | The main shop window where you can search through everything. |
-| `/productos/:id` | `DetailProductPage` | A focused view for one specific item. |
-| `/anadir-producto` | `AdminPage` | A management area where new products are added. |
+| `/products` | `ProductsPage` | The main shop window where you can search through everything. |
+| `/products/:id` | `DetailProductPage` | A focused view for one specific item. |
+| `/add-product` | `AdminPage` | A management area where new products are added. |
 
 ## 📐 The Page "Container"
 

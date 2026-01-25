@@ -28,10 +28,10 @@ This site is the blueprint of the entire house.
 bakery/
 ├── src/
 │   ├── components/       # Organized by category
-│   │   ├── layout/      # Header, Footer, Nav, etc.
-│   │   ├── ui/          # Card, Banner, SearchBar
-│   │   ├── products/    # Product-specific components
-│   │   └── forms/       # Form components
+│   │   ├── ui/               # Atomic pieces (Spinner, SkipLink)
+│   │   ├── common/           # Base components (Card, Banner, etc.)
+│   │   ├── features/products # Business logic (Form, Detail)
+│   │   └── forms/            # Form components (InputField, etc.)
 │   ├── pages/           # Route components (pages)
 │   ├── assets/          # Styles and static files
 │   └── data/            # Mock data

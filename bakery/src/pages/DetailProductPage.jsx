@@ -1,6 +1,9 @@
 import { useParams, useLocation } from "react-router-dom";
-import ProductDetail from "../components/products/ProductDetail.jsx";
+import ProductDetail from "../components/features/products/ProductDetail.jsx";
 import useProduct from "@/hooks/useProduct.js";
+import Spinner from "@/components/ui/Spinner.jsx";
+import Section from "../components/layout/Section.jsx";
+
 /**
  * Product Detail Page
  * 
@@ -13,15 +16,33 @@ function DetailProductPage() {
   const { id } = useParams();
   const location = useLocation();
 
-  const productFromState = location.state?.product;
+  // Try to get data from navigation state first to avoid loading flickering
+  const initialProduct = location.state?.product;
+  const { product, loading, error } = useProduct(id, initialProduct);
 
-  const { product: productFromAPI, loading, error } = useProduct(id);
+  if (loading && !product) {
+    return (
+      <Section title="Cargando...">
+        <Spinner />
+      </Section>
+    );
+  }
 
-  const product = productFromState || productFromAPI;
+  if (error) {
+    return (
+      <Section title="Error">
+        <p className="error-message">Error al cargar el producto: {error}</p>
+      </Section>
+    );
+  }
 
-  if (loading) return <p>Cargando producto...</p>;
-  if (error) return <p>Error al cargar producto: {error}</p>;
-  if (!product) return <p>Producto no encontrado</p>;
+  if (!product) {
+    return (
+      <Section title="No encontrado">
+        <p>El producto que buscas no existe o ha sido retirado.</p>
+      </Section>
+    );
+  }
 
   return <ProductDetail {...product} />;
 }

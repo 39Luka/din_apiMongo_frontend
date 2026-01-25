@@ -6,34 +6,64 @@
     width: 100%;
     height: var(--header-height);
     z-index: 100;
-    /* Asegura que esté por encima de todo */
     background-color: var(--color-secondary);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 0 2rem;
     box-sizing: border-box;
+    box-shadow: var(--dropshadow-subtle);
+}
+
+/* Hide brand subtitle on small screens */
+@media (max-width: 480px) {
+    .header__subtitle {
+        display: none;
+    }
 }
 
 .header__link {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.25rem;
 }
 
 .header__logo {
-    width: var(--logo-size);
-    height: var(--logo-size);
+    width: 4rem;
+    height: 4rem;
     object-fit: contain;
+}
+
+.header__brand {
+    display: flex;
+    flex-direction: column;
 }
 
 .header__title {
     font: var(--fw-bold) var(--heading-h4-size) var(--font-family-base);
     color: var(--color-primary);
+    line-height: 1.2;
 }
 
 .header__subtitle {
-    font-size: var(--text-normal-size);
+    font-size: var(--text-small-size);
     font-weight: 500;
     color: var(--color-primary);
+    /* Changed to Match Footer/Theme text */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    /* Slight opacity for hierarchy but kept in brown theme */
+}
+
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.header__auth-btn {
+    min-width: 100px;
+    padding: 0.5rem 1.25rem;
+    /* Ensure button text is readable if it inherits specific styles */
 }

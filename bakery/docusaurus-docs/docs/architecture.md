@@ -11,14 +11,15 @@ graph TD
     Root[App.jsx] --> Layout[Header/Nav/Footer]
     Root --> Router[AppRouter]
     Router --> Pages[Pages Catalog/Details/Admin]
-    Pages --> UI[UI Components Card/Banner]
+    Pages --> Features[Features/Products ProductDetail/ProductForm]
+    Pages --> Common[Common Card/Banner]
 ```
 
 ## Data Flow: From File to Screen
 
 Understanding how data moves is key to understanding the project:
 
-1. **Data Definition**: All products live in `src/data/productos.js`.
+1. **Data Definition**: All products live in `src/data/products.js`.
 2. **Fetching**: Pages import this data directly. 
 3. **Downstream**: The data is passed down to components (like `Card` or `ProductDetail`) via **Props**.
 4. **State**: We use `useState` for things that change (like what the user types in the search bar).
@@ -43,7 +44,7 @@ Structural components that define the application's layout:
 | `MainContent` | Main content wrapper with Outlet | - |
 | `Section` | Page section with title and accessible IDs | `title`, `children` |
 
-### UI Components (`components/ui/`)
+### Common Components (`components/common/`)
 Reusable presentational components:
 
 | Component | Purpose | Key Props |
@@ -52,12 +53,12 @@ Reusable presentational components:
 | `Banner` | Hero banner with image and h2 title | `image`, `title`, `content` |
 | `SearchBar` | Search input with icon | `searchTerm`, `onSearchChange` |
 
-### Product Components (`components/products/`)
+### Feature Components (`components/features/products/`)
 Domain-specific components for products:
 
 | Component | Purpose | Key Props |
 |-----------|---------|-----------|
-| `ProductDetail` | Full product information display | `nombre`, `precio`, `categoria`, etc. |
+| `ProductDetail` | Full product information display | `name`, `price`, `category`, etc. |
 | `ProductForm` | Form for adding products | - |
 | `RenderCards` | Maps products to Card components | `items` |
 
@@ -75,9 +76,9 @@ Reusable form field components:
 ```javascript
 / (MainContent wrapper)
 ├── /home              → Home page
-├── /productos         → Products catalog
-├── /productos/:id     → Product detail
-└── /anadir-producto   → Admin page (mock auth)
+├── /products          → Products catalog
+├── /products/:id      → Product detail
+└── /add-product       → Admin page (mock auth)
 ```
 
 ## Data Flow
@@ -88,7 +89,7 @@ Reusable form field components:
 - No complex global state (Redux/Context) is needed for this project.
 
 ### Data Storage
-- Products are stored in `src/data/productos.js` as a static array.
+- Products are stored in `src/data/products.js` as a static array.
 
 ## Accessibility Features
 

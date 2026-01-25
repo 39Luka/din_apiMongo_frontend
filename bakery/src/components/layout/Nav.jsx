@@ -40,7 +40,7 @@ function Nav({ links = [] }) {
         {isOpen ? "✖" : "☰"}
       </button>
 
-      {/* Menú móvil */}
+      {/* Mobile Menu */}
       {isOpen && (
         <ul className="nav__menu--mobile">
           {links.map((link) => (
@@ -57,7 +57,7 @@ function Nav({ links = [] }) {
         </ul>
       )}
 
-      {/* Menú escritorio */}
+      {/* Desktop Menu */}
       <ul className="nav__menu--desktop">
         {links.map((link) => (
           <li key={link.to} className="nav__item">

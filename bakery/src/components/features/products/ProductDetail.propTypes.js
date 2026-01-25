@@ -1,16 +1,18 @@
 import PropTypes from 'prop-types';
 
 const ProductDetailPropTypes = {
+    /** The unique ID of the product. */
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     /** The name of the product. */
-    nombre: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     /** The price of the product in Euros. */
-    precio: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     /** The category the product belongs to. */
-    categoria: PropTypes.string,
+    category: PropTypes.string,
     /** A detailed description of the product. */
-    descripcion: PropTypes.string,
+    description: PropTypes.string,
     /** The URL of the product image. */
-    imagen: PropTypes.string,
+    image: PropTypes.string,
 };
 
 export { ProductDetailPropTypes };

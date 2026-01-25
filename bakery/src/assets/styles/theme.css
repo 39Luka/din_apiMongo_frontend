@@ -34,6 +34,11 @@
     --color-warning: rgba(226, 185, 59, 1);
 
     --dropshadow: 0px 4px 24px 0px rgba(9, 44, 76, 0.4);
+    --dropshadow-subtle: 0px 4px 12px 0px rgba(0, 0, 0, 0.1);
+
+    /* Accesibilidad */
+    --focus-ring: 0 0 0 4px rgba(92, 41, 5, 0.4);
+    --focus-ring-offset: 2px;
 
     /* ===== Tipografía Base ===== */
     --font-family-base: "Inter", Helvetica, sans-serif;

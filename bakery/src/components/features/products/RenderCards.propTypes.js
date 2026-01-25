@@ -4,10 +4,10 @@ const RenderCardsPropTypes = {
     /** Array of product items to render. */
     items: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            nombre: PropTypes.string.isRequired,
-            descripcion: PropTypes.string,
-            imagen: PropTypes.string,
+            id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+            name: PropTypes.string.isRequired,
+            description: PropTypes.string,
+            image: PropTypes.string,
         })
     ).isRequired,
 };

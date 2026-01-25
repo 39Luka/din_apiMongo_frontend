@@ -9,7 +9,7 @@ export const Input = {
     render: (args) => <InputField {...args} />,
     args: {
         label: 'Nombre del Producto',
-        id: 'nombre',
+        id: 'name',
         placeholder: 'Escribe algo...',
         helpText: 'Dato obligatorio.',
     },
@@ -27,7 +27,7 @@ export const Textarea = {
     render: (args) => <TextareaField {...args} />,
     args: {
         label: 'Descripción',
-        id: 'desc',
+        id: 'description',
         placeholder: 'Detalles del producto...',
     },
 };
@@ -36,7 +36,7 @@ export const Select = {
     render: (args) => <SelectField {...args} />,
     args: {
         label: 'Categoría',
-        id: 'cat',
+        id: 'category',
         options: [
             { value: '1', label: 'Pan' },
             { value: '2', label: 'Bollería' },

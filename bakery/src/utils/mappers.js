@@ -1,37 +1,27 @@
-export function mapProductsDTO(apiData) {
+export function mapProductsFromAPI(apiData) {
   if (!apiData) return [];
-
-  return apiData.map(item => ({
-    id: item._id,
-    nombre: item.name,
-    descripcion: item.description,
-    imagen: item.photo,
-    precio: item.price,
-    categoria: item.category,
-  }));
+  return apiData.map(item => mapProductFromAPI(item));
 }
-
 
 export function mapProductToAPI(product) {
   return {
-    name: product.nombre,
-    description: product.descripcion,
-    price: Number(product.precio), 
-    category: product.categoria,
-    photo: product.imagen || "" 
+    name: product.name,
+    description: product.description,
+    price: Number(product.price),
+    category: product.category,
+    photo: product.image || ""
   }
 }
 
-export function mapProductDTO(apiProduct) {
+export function mapProductFromAPI(apiProduct) {
   if (!apiProduct) return null;
 
   return {
     id: apiProduct._id,
-    nombre: apiProduct.name,
-    descripcion: apiProduct.description,
-    imagen: apiProduct.photo,
-    precio: apiProduct.price,
-    categoria: apiProduct.category,
+    name: apiProduct.name,
+    description: apiProduct.description,
+    image: apiProduct.photo,
+    price: apiProduct.price,
+    category: apiProduct.category,
   };
 }
-

@@ -1,7 +1,5 @@
-import { deleteOneProduct } from "@/services/productosService";
-
 import { useState } from "react";
-import { deleteOneProduct } from "@/services/productosService";
+import { deleteOneProduct } from "@/services/productService";
 
 function useRemoveProduct() {
   const [loading, setLoading] = useState(false);
@@ -17,7 +15,7 @@ function useRemoveProduct() {
       })
       .catch(err => {
         setError(err?.message || String(err));
-        throw err; 
+        throw err;
       })
       .finally(() => {
         setLoading(false);

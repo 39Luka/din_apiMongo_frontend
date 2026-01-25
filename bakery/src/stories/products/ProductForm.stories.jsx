@@ -1,4 +1,4 @@
-import ProductForm from '../../components/products/ProductForm';
+import ProductForm from '../../components/features/products/ProductForm';
 
 export default {
     title: 'Components/ProductForm',

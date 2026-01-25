@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { postOneProduct } from "@/services/productosService";
+import { postOneProduct } from "@/services/productService";
 import { mapProductToAPI } from "@/utils/mappers";
 
 function useCreateProduct() {
@@ -12,7 +12,6 @@ function useCreateProduct() {
         setError(null);
 
         const apiData = mapProductToAPI(productData);
-        console.log(apiData)
         return postOneProduct(apiData)
             .then(res => {
                 setProduct(res.data);

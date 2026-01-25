@@ -6,15 +6,15 @@ import { useState, useMemo } from 'react';
  * 
  * @returns {Object} { searchTerm, setSearchTerm, filteredProducts }
  */
-const useProductSearch = (productos = []) => {
+const useProductSearch = (products = []) => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const filteredProducts = useMemo(() => {
-        if (!searchTerm) return productos;
-        return productos.filter((product) =>
-            product.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+        if (!searchTerm) return products;
+        return products.filter((product) =>
+            product.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
-    }, [searchTerm, productos]);
+    }, [searchTerm, products]);
 
     return {
         searchTerm,

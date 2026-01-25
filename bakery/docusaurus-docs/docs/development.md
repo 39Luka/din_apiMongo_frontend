@@ -6,11 +6,11 @@ This guide covers the development workflow, best practices, and common tasks for
 
 If you want to add something new (like a "Sales" page), follow these steps:
 
-1. **Plan the Data**: Decide if you need new data in `src/data/productos.js`.
+1. **Plan the Data**: Decide if you need new data in `src/data/products.js`.
 2. **Create the Page**: Create a new file in `src/pages/SalesPage.jsx`.
 3. **Register the Route**: Add the new path in `src/routes/AppRouter.jsx`.
 4. **Add to Navigation**: Update `Header.jsx` so users can find your page.
-5. **Build Components**: If the page needs new UI, create components in `src/components/ui/`.
+5. **Build Components**: If the page needs new UI, create components in `src/components/common/`.
 6. **Style it**: Create a CSS file in `assets/styles/pages/` and import it in `index.css`.
 
 ## Development Servers
@@ -44,8 +44,9 @@ npm start
 ### 1. Choose the Right Category
 Place your component in the appropriate folder:
 - `components/layout/` - Structural components
-- `components/ui/` - Reusable UI elements
-- `components/products/` - Product-specific components
+- `components/ui/` - Atomic UI elements (Spinner, SkipLink)
+- `components/common/` - Resuable base components (Card, SearchBar)
+- `components/features/products/` - Product-specific logic
 - `components/forms/` - Form-related components
 
 ### 2. Component Template
@@ -126,7 +127,7 @@ export const Default = {
 3. Link it in the `Header.jsx` menu.
 
 ### Working with Data
-- Update `src/data/productos.js` to add or modify products.
+- Update `src/data/products.js` to add or modify products.
 
 ## Debugging
 

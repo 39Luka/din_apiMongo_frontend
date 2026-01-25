@@ -1,7 +1,7 @@
 import { useProductSearch } from "../hooks/useProductSearch.js";
 import Section from "../components/layout/Section.jsx";
-import RenderCards from "../components/products/RenderCards.jsx";
-import SearchBar from "../components/ui/SearchBar.jsx";
+import RenderCards from "../components/features/products/RenderCards.jsx";
+import SearchBar from "../components/common/SearchBar.jsx";
 import useProducts from "@/hooks/useProducts.js";
 import Spinner from "@/components/ui/Spinner.jsx";
 /**
@@ -13,8 +13,21 @@ function ProductsPage() {
   const { products, loading, error } = useProducts();
   const { searchTerm, setSearchTerm, filteredProducts } = useProductSearch(products);
 
-  if (loading) return <Spinner />;
-  if (error) return <p>Error al cargar los productos.</p>;
+  if (loading) {
+    return (
+      <Section title="Cargando catálogo...">
+        <Spinner />
+      </Section>
+    );
+  }
+
+  if (error) {
+    return (
+      <Section title="Error">
+        <p className="error-message">Error al cargar los productos: {error}</p>
+      </Section>
+    );
+  }
 
 
   return (
@@ -24,6 +37,11 @@ function ProductsPage() {
           searchTerm={searchTerm}
           onSearchChange={setSearchTerm}
         />
+        <p className="sr-only" aria-live="polite" role="status">
+          {filteredProducts.length === 0
+            ? "No se encontraron productos que coincidan con tu búsqueda."
+            : `Mostrando ${filteredProducts.length} productos.`}
+        </p>
       </header>
 
       {filteredProducts.length > 0 ? (
