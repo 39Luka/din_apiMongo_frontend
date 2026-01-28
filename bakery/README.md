@@ -35,17 +35,6 @@ npm install
 npm run dev
 ```
 
-### Documentación (Storybook)
-```bash
-npm run storybook
-```
-
-### Documentación Manual (Docusaurus)
-```bash
-cd docusaurus-docs
-npm start
-```
-
 ## Créditos
 - **Imágenes**: [Pexels](https://pexels.com), [Freepik](https://freepik.com)
 - **Hosting**: Imágenes alojadas en [ImgBB](https://imgbb.com)
