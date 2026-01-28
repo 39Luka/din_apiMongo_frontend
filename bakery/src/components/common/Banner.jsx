@@ -27,6 +27,6 @@ function Banner({ image, title, content }) {
   );
 }
 
-Banner.propTypes = BannerPropTypes;
+
 
 export default Banner;

@@ -32,6 +32,5 @@ function RenderCards({ items = [] }) {
   );
 }
 
-RenderCards.propTypes = RenderCardsPropTypes;
 
 export default RenderCards;

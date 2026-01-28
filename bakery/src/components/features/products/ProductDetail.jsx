@@ -102,6 +102,5 @@ function ProductDetail({ id, name, price, category, description, image }) {
     );
 }
 
-ProductDetail.propTypes = ProductDetailPropTypes;
 
 export default ProductDetail;

@@ -71,6 +71,5 @@ function Nav({ links = [] }) {
   );
 }
 
-Nav.propTypes = NavPropTypes;
 
 export default Nav;

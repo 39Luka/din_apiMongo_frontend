@@ -40,6 +40,5 @@ function SearchBar({ searchTerm, onSearchChange }) {
     );
 }
 
-SearchBar.propTypes = SearchBarPropTypes;
 
 export default SearchBar;

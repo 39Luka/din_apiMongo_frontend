@@ -9,7 +9,7 @@ const productsApi = axios.create({
 });
 
 export function getAllProducts() {
-    return productsApi.get("/");
+    return productsApi.get("");
 }
 
 export function getOneProduct(id) {

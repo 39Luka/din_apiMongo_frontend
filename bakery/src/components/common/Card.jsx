@@ -26,6 +26,5 @@ function Card({ title, description, image }) {
   );
 }
 
-Card.propTypes = CardPropTypes;
 
 export default Card;
