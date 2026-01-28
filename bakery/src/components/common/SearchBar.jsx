@@ -1,4 +1,3 @@
-import { SearchBarPropTypes } from './SearchBar.propTypes';
 
 /**
  * SearchBar Component

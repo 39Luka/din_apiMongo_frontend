@@ -1,4 +1,3 @@
-import { CardPropTypes } from './Card.propTypes';
 
 /**
  * Card Component

@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "@/context/UserContext";
 import { formatCurrency } from '../../../utils/formatters.js';
-import { ProductDetailPropTypes } from './ProductDetail.propTypes';
 import useRemoveProduct from "@/hooks/useRemoveProduct";
 import Spinner from "../../ui/Spinner.jsx";
 

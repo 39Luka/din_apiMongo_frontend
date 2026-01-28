@@ -1,4 +1,3 @@
-import { BannerPropTypes } from './Banner.propTypes';
 
 /**
  * Banner Component

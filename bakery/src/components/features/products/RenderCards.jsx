@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Card from "../../common/Card.jsx";
-import { RenderCardsPropTypes } from './RenderCards.propTypes';
 
 /**
  * Renders a list of products using the Card component.
