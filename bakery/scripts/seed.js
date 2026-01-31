@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { products } from '../src/data/products.js';
 
-const API_URL = 'http://localhost:8000/productos';
+const API_URL = 'https://din-apimongo.onrender.com/productos';
 
 async function seed() {
     console.log('🚀 Starting seed process from src/data/products.js...');
