@@ -1,0 +1,98 @@
+/* STATUS MESSAGE COMPONENT (BEM) */
+.status-message {
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    border-radius: 12px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-grey-5);
+    box-shadow: var(--dropshadow-subtle);
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.status-message--error {
+    background-color: var(--color-error-bg);
+    border-color: var(--color-error-border);
+    color: var(--color-error-text);
+}
+
+.status-message--info {
+    background-color: var(--color-info-bg);
+    border-color: var(--color-info-border);
+    color: var(--color-info-text);
+}
+
+.status-message--empty {
+    background-color: var(--color-white);
+    color: var(--color-grey-1);
+    border-style: dashed;
+}
+
+.status-message__icon {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.status-message__title {
+    font-weight: 700;
+    margin: 0;
+    font-size: 1.75rem;
+}
+
+.status-message__text {
+    margin: 0;
+    color: inherit;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+.status-message__action {
+    margin-top: 1rem;
+}
+
+/* Funny/Animated Loading Messages - INTEGRATED */
+.status-view {
+    width: 100%;
+}
+
+.status-view--loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    /* Sufficient space but within the content flow */
+    width: 100%;
+    margin: 0 auto;
+    gap: 2rem;
+    padding: 2rem;
+    /* Removed fixed positioning to avoid covering header/nav */
+}
+
+.status-view__message--funny {
+    font-style: italic;
+    color: var(--color-primary);
+    font-weight: 700;
+    margin: 0;
+    font-size: 1.75rem;
+    /* Still big, but more balanced */
+    text-align: center;
+    max-width: 600px;
+    animation: floatingText 2s ease-in-out infinite;
+}
+
+@keyframes floatingText {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}

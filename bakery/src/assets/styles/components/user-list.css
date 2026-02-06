@@ -1,0 +1,118 @@
+/* USER LIST COMPONENT (BEM) */
+.user-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.user-list__loading {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.user-list__loading-text {
+    margin-top: var(--spacing-md);
+    color: var(--color-grey-1);
+    font-weight: 600;
+}
+
+.user-list__error {
+    background-color: var(--color-error-bg);
+    color: var(--color-error-text);
+    padding: 1.25rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-error-border);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.user-list__error-icon {
+    font-size: 1.2rem;
+}
+
+.user-list__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.user-list__empty {
+    text-align: center;
+    padding: var(--spacing-xl);
+    grid-column: 1 / -1;
+    color: var(--color-grey-1);
+}
+
+.user-list__item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: 1.25rem;
+    background-color: var(--color-white);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--color-grey-2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.user-list__item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.user-list__avatar-wrapper {
+    flex-shrink: 0;
+}
+
+.user-list__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-secondary);
+}
+
+.user-list__avatar-placeholder {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-grey-5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.user-list__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-list__username {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.user-list__email {
+    margin: 0.2rem 0 0;
+    font-size: 0.85rem;
+    color: var(--color-grey-1);
+}
+
+.user-list__footer {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+
+.user-list__refresh-btn {
+    font-size: 0.9rem;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}

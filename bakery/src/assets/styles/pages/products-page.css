@@ -1,0 +1,16 @@
+/* PRODUCTS PAGE (BEM) */
+.products-page__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: var(--spacing-lg);
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+    .products-page__header {
+        justify-content: center;
+    }
+}

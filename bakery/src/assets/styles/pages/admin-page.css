@@ -31,7 +31,7 @@
     line-height: 1.6;
 }
 
-.admin-header {
+.admin-page__header-internal {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,19 +42,19 @@
     gap: 1rem;
 }
 
-.admin-header__title {
+.admin-page__title-internal {
     margin: 0;
     color: var(--color-primary);
+    font-weight: var(--fw-bold);
 }
 
-.admin-header__controls {
+.admin-page__controls {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-/* Animations */
-.admin-login-card {
+.admin-page__content {
     animation: fadeInScale 0.4s ease-out;
 }
 

@@ -19,10 +19,19 @@
 @import "./components/banner.css";
 @import "./components/section.css";
 @import "./components/card.css";
+@import "./components/tabs.css";
 @import "./components/product-grid.css";
 @import "./components/search-bar.css";
+@import "./components/form-field.css";
 @import "./components/product-form.css";
+@import "./components/product-reports.css";
+@import "./components/user-list.css";
+@import "./components/profile-page.css";
+@import "./components/status-message.css";
 
 /* 4. Estilos de Páginas Específicas */
 @import "./pages/product-detail.css";
+@import "./pages/products-page.css";
 @import "./pages/admin-page.css";
+@import "./pages/auth-pages.css";
+@import "./pages/not-found.css";

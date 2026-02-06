@@ -1,0 +1,134 @@
+/* FORM FIELD COMPONENT (BEM) */
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.form-field__label {
+    font-size: var(--text-normal-size);
+    font-weight: var(--fw-bold);
+    color: var(--color-primary);
+}
+
+.form-field__help {
+    font-size: var(--text-small-size);
+    color: var(--color-grey-3);
+    font-style: italic;
+}
+
+.form-field__input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-grey-4);
+    border-radius: 0.5rem;
+    font-size: var(--text-normal-size);
+    font-family: inherit;
+    transition: all 0.2s ease;
+    background-color: var(--color-white);
+}
+
+.form-field__input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(92, 41, 5, 0.15);
+}
+
+.form-field__input[aria-invalid="true"] {
+    border-color: var(--color-error);
+    background-color: rgba(235, 87, 87, 0.02);
+}
+
+.form-field__error {
+    color: var(--color-error);
+    font-size: var(--text-small-size);
+    font-weight: 500;
+}
+
+.form-field__textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-field__select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+}
+
+/* Image Field Specifics */
+.form-field__image-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-field__image-input-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.form-field__image-input {
+    flex: 1;
+}
+
+.form-field__preview {
+    border: 1px dashed var(--color-grey-2);
+    border-radius: 8px;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-grey-6);
+}
+
+.form-field__preview-img {
+    max-height: 15rem;
+    max-width: 100%;
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+/* Password Toggle Specifics */
+.form-field__password-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.form-field__password-input {
+    padding-right: 3rem;
+    /* Space for the eye icon */
+}
+
+.form-field__toggle-btn {
+    position: absolute;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    padding: 0.25rem;
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    user-select: none;
+    color: var(--color-grey-3);
+}
+
+.form-field__toggle-btn:hover {
+    transform: scale(1.15);
+    color: var(--color-primary);
+}
+
+.form-field__toggle-btn:active {
+    transform: scale(0.95);
+}

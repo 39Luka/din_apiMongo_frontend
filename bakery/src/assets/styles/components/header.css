@@ -16,6 +16,47 @@
 }
 
 /* Hide brand subtitle on small screens */
+@media (max-width: 1024px) {
+    .header {
+        padding: var(--spacing-md);
+    }
+}
+
+/* User Info Section (BEM) */
+.header__user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-right: 0.5rem;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 12px;
+    transition: background-color 0.2s;
+}
+
+.header__user-info:hover {
+    background-color: var(--color-grey-5);
+}
+
+.header__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-secondary);
+}
+
+.header__avatar-placeholder {
+    font-size: 1.5rem;
+}
+
+.header__username {
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.9rem;
+}
+
+/* Hide brand subtitle on small screens */
 @media (max-width: 480px) {
     .header__subtitle {
         display: none;
