@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/api/:path*",
+      "destination": "https://din-25-26-zw82.onrender.com/:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

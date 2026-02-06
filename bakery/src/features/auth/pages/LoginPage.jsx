@@ -48,8 +48,9 @@ function LoginPage() {
                     navigate("/admin");
                 }, 1500);
             } else {
-                // Security: Use generic message to prevent account enumeration
-                setErrorMsg("Usuario o contraseña incorrectos");
+                // Determine if it's a security/credential error or a network/server error
+                // For debugging purposes in this phase, we prefer seeing the real error (like "Network Error")
+                setErrorMsg(result.message || "Usuario o contraseña incorrectos");
             }
         }
     });

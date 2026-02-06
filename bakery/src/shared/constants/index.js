@@ -1,5 +1,9 @@
 // API Configuration
-export const API_BASE_URL = (import.meta.env.VITE_API_URL || "https://din-25-26-zw82.onrender.com").replace(/\/$/, '');
+// En producción (Vercel), usa el proxy /api para evitar CORS
+// En desarrollo local, usa la URL directa del backend
+export const API_BASE_URL = import.meta.env.PROD
+    ? '/api'
+    : (import.meta.env.VITE_API_URL || "https://din-25-26-zw82.onrender.com").replace(/\/$/, '');
 
 export const ENDPOINTS = {
     PRODUCTS: "/productos",
