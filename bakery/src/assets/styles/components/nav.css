@@ -83,7 +83,6 @@
         padding: 1rem;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         z-index: 1000;
-        /* Removed border-top to blend with header */
     }
 
     .nav__container--open {
@@ -95,6 +94,8 @@
         flex-direction: column;
         width: 100%;
         gap: 0.5rem;
+        align-items: flex-start;
+        /* Align left */
     }
 
     .nav__item {
@@ -104,7 +105,10 @@
     .nav__link {
         display: block;
         width: 100%;
-        text-align: center;
+        text-align: left;
+        /* Align left */
+        padding-left: 0;
+        /* Remove default padding if needed, or keep it */
         /* Ensure text is readable on pink background */
         color: var(--color-primary);
     }
@@ -114,6 +118,9 @@
         width: 100%;
         margin-top: 0.5rem;
         padding-top: 0.5rem;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-top: none;
+        /* Remove separator line */
+        align-items: flex-start;
+        /* Align left */
     }
 }
