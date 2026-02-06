@@ -60,6 +60,17 @@
     transition: background-color 0.2s;
 }
 
+@media (max-width: 768px) {
+    .header__user-info {
+        padding: 0.5rem 0;
+        /* Remove horizontal padding to align strict left */
+        margin-right: 0;
+        width: 100%;
+        /* Take full width if needed */
+        justify-content: flex-start;
+    }
+}
+
 .header__user-info:hover {
     background-color: var(--color-grey-5);
 }
