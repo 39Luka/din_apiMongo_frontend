@@ -20,7 +20,7 @@
 @media (max-width: 768px) {
     .header {
         height: auto;
-        padding: 0.5rem 1rem;
+        padding: 0.25rem 1rem;
         /* Maintain row for logo left / menu right */
         flex-direction: row;
     }
