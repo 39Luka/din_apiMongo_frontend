@@ -3,7 +3,9 @@ const path = require("path");
 
 const isDev = !!process.env.ELECTRON_START_URL;
 // En produccion cargamos la URL de Vercel directamente
-const startURL = process.env.ELECTRON_START_URL || "https://din-api-mongo-frontend.vercel.app/";
+// const startURL = process.env.ELECTRON_START_URL || "https://din-api-mongo-frontend.vercel.app/";
+// const startURL = process.env.ELECTRON_START_URL || path.join(__dirname, "dist", "index.html");
+const startURL = isDev ? process.env.ELECTRON_START_URL : "https://din-api-mongo-frontend.vercel.app/";
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -23,7 +25,7 @@ function createWindow() {
         win.loadURL(startURL);
     }
 
-    // Para simular modo móvil (según instrucciones):
+    // Para simular modo móvil:
     win.setBounds({ width: 375, height: 667 });
 }
 
