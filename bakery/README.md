@@ -56,7 +56,7 @@ Para demostrar el funcionamiento en producción, se adjuntan las siguientes vist
 ![Vista Web en Producción](docs/image_web.png)
 
 ### Vista de Escritorio (Electron - Simulación Móvil)
-![Vista de Escritorio](docs/image-electron.png)
+![Vista de Escritorio](docs/image_electron.png)
 
 ---
 
