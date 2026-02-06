@@ -1,5 +1,7 @@
 {
   "name": "bakery",
+  "description": "Aplicación de panadería artesanal con React y Electron",
+  "author": "Bakery++ Team",
   "private": true,
   "version": "0.0.0",
   "main": "main.cjs",
@@ -45,5 +47,21 @@
     "storybook": "8.6.15",
     "vite": "^6.2.0",
     "wait-on": "^9.0.3"
+  },
+  "build": {
+    "appId": "com.bakery.app",
+    "productName": "Bakery++",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "main.cjs",
+      "preload.cjs"
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ]
+    }
   }
 }

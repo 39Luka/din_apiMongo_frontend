@@ -7,12 +7,20 @@ Una aplicación web moderna y funcional para una panadería artesanal, diseñada
 
 El proyecto ha sido distribuido en múltiples entornos para asegurar su disponibilidad en diferentes plataformas:
 
-- **API Backend**: Desplegada en **Render**. Es el núcleo de la aplicación, gestionando la base de datos MongoDB y las peticiones de los clientes.
-- **Frontend Web**: Alojado en **Vercel**. Permite el acceso inmediato a la aplicación desde cualquier navegador moderno.
-- **App de Escritorio**: Empaquetada con **Electron**. El ejecutable `.exe` resultante permite el uso de la aplicación como una herramienta nativa del sistema.
+- **API Backend**: [din-25-26-zw82.onrender.com](https://din-25-26-zw82.onrender.com/) (Desplegada en **Render**).
+- **Frontend Web**: [din-api-mongo-frontend.vercel.app](https://din-api-mongo-frontend.vercel.app/) (Alojado en **Vercel**).
+- **App de Escritorio**: Empaquetada con **Electron** (Scripts de empaquetado listos para generar `.exe`).
 
 ### 🛠️ Configuración de Entornos
-Se ha implementado una gestión robusta de **variables de entorno** (`.env`). Esto permite que la aplicación detecte automáticamente si se encuentra en un entorno de desarrollo o de producción, ajustando las URLs de conexión a la API de forma transparente para el usuario final.
+Se ha implementado una gestión robusta de **variables de entorno** (`.env`). Esto permite que la aplicación detecte automáticamente si se encuentra en un entorno de desarrollo o de producción, ajustando las URLs de conexión a la API de forma transparente.
+
+### ⚠️ Desafíos y Soluciones en el Despliegue
+Durante el proceso de puesta en producción, se abordaron los siguientes retos técnicos exigidos por la actividad:
+1. **Configuración de CORS**: Al separar el Backend y el Frontend en dominios distintos (Render y Vercel), fue necesario ajustar las cabeceras de seguridad en la API para permitir peticiones desde el dominio de producción.
+2. **Enrutamiento en Vercel (SPA)**: Al ser una Single Page Application con React Router, la navegación manual a rutas como `/products` o `/admin` devolvía un error 404 en producción. Se solucionó creando un archivo `vercel.json` con una regla de reescritura que redirige todas las peticiones al `index.html`, permitiendo que React Router gestione las rutas en el cliente.
+3. **Persistence en Escritorio**: Al empaquetar con Electron, se optó por cargar la URL de producción directamente para garantizar que los datos estén siempre sincronizados entre la web y el escritorio sin necesidad de redundancia de código.
+4. **Variables de Entorno en Vite**: El uso de `VITE_` al inicio de las variables fue clave para que el compilador de Vite pudiera inyectarlas correctamente en el bundle final de producción.
+5. **Empaquetado de Electron (.exe)**: Durante el proceso de generación del ejecutable con `electron-builder`, se encontraron limitaciones de permisos en Windows 11 relacionadas con la firma de código (code signing). El sistema requiere privilegios de administrador o activar el "Modo Desarrollador" para crear enlaces simbólicos necesarios en el proceso de empaquetado. Como alternativa funcional, la aplicación de escritorio se ejecuta perfectamente con `npm run electron-dev`, cargando la versión de producción desde Vercel. La carpeta `dist-electron` se ha añadido al `.gitignore` para evitar subir archivos binarios pesados al repositorio.
 
 ---
 
@@ -40,11 +48,24 @@ Para asegurar la escalabilidad del proyecto, se han aplicado patrones de diseño
 
 ## ♿ Accesibilidad, Usabilidad y Mejores Prácticas
 
+## 📸 Capturas de Pantalla
+Para demostrar el funcionamiento en producción, se adjuntan las siguientes vistas:
+
+### Vista Web (Vercel)
+![Vista Web en Producción](docs/image_web.png)
+
+### Vista de Escritorio (Electron - Simulación Móvil)
+![Vista de Escritorio](docs/desktop-electron.png)
+> **Nota**: Para generar esta captura, ejecuta `npm run electron-dev` y toma una captura de la ventana de Electron.
+
+---
+
+## ♿ Accesibilidad, Usabilidad y Mejores Prácticas
+
 ### Accesibilidad (A11y)
 - **HTML Semántico**: Uso estructurado de etiquetas como `<main>`, `<section>`, `<header>`, `<article>` y `<figure>`.
 - **ARIA y Landmarks**: Implementación de atributos ARIA para facilitar la navegación con lectores de pantalla.
 - **Navegación por Teclado**: La aplicación es totalmente operable mediante teclado, incluyendo un enlace de "Saltar al contenido principal".
-![Vista de la App](docs/images/app-home.png)
 
 ### Usabilidad (UX/UI)
 - **Diseño Responsivo**: Adaptación fluida a diferentes resoluciones bajo un enfoque "mobile-first".
