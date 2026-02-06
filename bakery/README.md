@@ -57,7 +57,6 @@ Para demostrar el funcionamiento en producción, se adjuntan las siguientes vist
 
 ### Vista de Escritorio (Electron - Simulación Móvil)
 ![Vista de Escritorio](docs/desktop-electron.png)
-> **Nota**: Para generar esta captura, ejecuta `npm run electron-dev` y toma una captura de la ventana de Electron.
 
 ---
 
