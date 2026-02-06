@@ -33,25 +33,25 @@ function Header() {
       </Link>
 
       <div className="header__actions">
-        <Nav links={navLinks} />
+        <Nav links={navLinks}>
+          {userLogged && userData && (
+            <Link to="/profile" className="header__user-info">
+              {userData.avatar ? (
+                <img src={userData.avatar} alt={userData.username} className="header__avatar" />
+              ) : (
+                <span className="header__avatar-placeholder">👤</span>
+              )}
+              <span className="header__username">{userData.username}</span>
+            </Link>
+          )}
 
-        {userLogged && userData && (
-          <Link to="/profile" className="header__user-info">
-            {userData.avatar ? (
-              <img src={userData.avatar} alt={userData.username} className="header__avatar" />
-            ) : (
-              <span className="header__avatar-placeholder">👤</span>
-            )}
-            <span className="header__username">{userData.username}</span>
-          </Link>
-        )}
-
-        <button
-          onClick={handleAuthAction}
-          className={`button ${userLogged ? "button--danger" : "button--primary"} header__auth-btn`}
-        >
-          {userLogged ? "Log Out" : "Log In"}
-        </button>
+          <button
+            onClick={handleAuthAction}
+            className={`button ${userLogged ? "button--danger" : "button--primary"} header__auth-btn`}
+          >
+            {userLogged ? "Log Out" : "Log In"}
+          </button>
+        </Nav>
       </div>
     </header>
   );

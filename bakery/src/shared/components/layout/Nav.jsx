@@ -11,42 +11,17 @@ import { NavLink } from "react-router-dom";
  * @param {Object} props
  * @param {Array<{to: string, label: string}>} props.links - Navigation links.
  */
-function Nav({ links = [] }) {
+function Nav({ links = [], children }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  /**
-   * Toggles the mobile menu state.
-   */
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  /**
-   * Generates dynamic CSS classes based on whether the link is active.
-   * @param {Object} params 
-   * @param {boolean} params.isActive - Whether the current route matches the link.
-   * @returns {string} CSS class string.
-   */
   const linkClass = ({ isActive }) =>
     `nav__link ${isActive ? "nav__link--active" : ""}`;
 
-  // Moved MenuList definition before the main return statement
-  const MenuList = () => (
-    <ul className={isOpen ? "nav__menu nav__menu--mobile" : "nav__menu nav__menu--desktop"}>
-      {links.map((link) => (
-        <li key={link.to} className="nav__item">
-          <NavLink
-            to={link.to}
-            className={linkClass}
-            onClick={() => setIsOpen(false)}
-          >
-            {link.label}
-          </NavLink>
-        </li>
-      ))}
-    </ul>
-  );
-
   return (
     <nav className="nav" aria-label="Navegación principal">
+      {/* Hamburger Toggle - Visible only on Mobile */}
       <button
         onClick={toggleMenu}
         className="nav__toggle"
@@ -56,7 +31,32 @@ function Nav({ links = [] }) {
         {isOpen ? "✖" : "☰"}
       </button>
 
-      <MenuList />
+      {/* Main Container - Collapsible on Mobile, Row on Desktop */}
+      <div className={`nav__container ${isOpen ? "nav__container--open" : ""}`}>
+        <ul className="nav__list">
+          {links.map((link) => (
+            <li key={link.to} className="nav__item">
+              <NavLink
+                to={link.to}
+                className={linkClass}
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+
+        {/* Injected Actions (User Profile, Login Button) */}
+        {children && (
+          <div className="nav__user-actions" onClick={() => setIsOpen(false)}>
+            {children}
+          </div>
+        )}
+      </div>
+
+      {/* Overlay for mobile to close menu when clicking outside */}
+      {isOpen && <div className="nav__overlay" onClick={() => setIsOpen(false)} />}
     </nav>
   );
 }
