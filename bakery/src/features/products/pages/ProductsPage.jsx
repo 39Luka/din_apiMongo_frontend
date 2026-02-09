@@ -15,31 +15,31 @@ function ProductsPage() {
   const { searchTerm, setSearchTerm, filteredProducts } = useProductSearch(products);
 
   return (
-    <StatusView
-      loading={loading}
-      error={error}
-      isEmpty={products.length > 0 && filteredProducts.length === 0}
-      emptyMessage="No se encontraron productos que coincidan con tu búsqueda."
-      loadingMessage="Cargando catálogo..."
-    >
-      <Section title="Nuestros Productos">
-        <header className="products-page__header">
-          <SearchBar
-            searchTerm={searchTerm}
-            onSearchChange={setSearchTerm}
-          />
-          <p className="sr-only" aria-live="polite" role="status">
-            {filteredProducts.length === 0
-              ? "No se encontraron productos que coincidan con tu búsqueda."
-              : `Mostrando ${filteredProducts.length} productos.`}
-          </p>
-        </header>
+    <Section title="Nuestros Productos">
+      <header className="products-page__header">
+        <SearchBar
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
+        />
+        <p className="sr-only" aria-live="polite" role="status">
+          {filteredProducts.length === 0
+            ? "No se encontraron productos que coincidan con tu búsqueda."
+            : `Mostrando ${filteredProducts.length} productos.`}
+        </p>
+      </header>
 
+      <StatusView
+        loading={loading}
+        error={error}
+        isEmpty={products.length > 0 && filteredProducts.length === 0}
+        emptyMessage="No se encontraron productos que coincidan con tu búsqueda."
+        loadingMessage="Cargando catálogo..."
+      >
         <ul className="product-grid" aria-label="Catálogo de productos">
           <RenderCards items={filteredProducts} />
         </ul>
-      </Section>
-    </StatusView>
+      </StatusView>
+    </Section>
   );
 }
 
