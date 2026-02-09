@@ -11,7 +11,7 @@ import useVoiceRecognition from "../../../shared/hooks/useVoiceRecognition";
  * @component
  */
 function SearchBar({ searchTerm, onSearchChange }) {
-    
+
     // Función que recibe el texto reconocido por voz
     // y lo usa como término de búsqueda
     const handleVoiceResult = (text) => {
@@ -28,6 +28,7 @@ function SearchBar({ searchTerm, onSearchChange }) {
 
     // Guardamos la posición inicial del dedo
     const onTouchStart = (e) => {
+        // console.log("Touch Start:", e.targetTouches[0].clientX);
         touchStartRef.current = e.targetTouches[0].clientX;
     };
 
@@ -38,10 +39,15 @@ function SearchBar({ searchTerm, onSearchChange }) {
         const touchEnd = e.changedTouches[0].clientX;
         const distance = touchEnd - touchStartRef.current;
 
+        // console.log("Touch End. Distance:", distance);
+
         // Si el swipe es suficiente, iniciamos la escucha por voz
         if (distance > minSwipeDistance) {
+            // console.log("Swipe detected! Attempting to start listening...");
             if (isSupported && !isListening) {
                 startListening();
+            } else if (!isSupported) {
+                console.warn("Voice recognition not supported or blocked (HTTPS required?)");
             }
         }
 
